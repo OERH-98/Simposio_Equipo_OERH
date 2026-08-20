@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 230" role="img" aria-label="Método AIDA: Atención, Interés, Deseo, Acción">
+<defs><linearGradient id="adL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FF6B6B"/><stop offset=".35" stop-color="#00F5FF"/><stop offset=".7" stop-color="#00B4D8"/><stop offset="1" stop-color="#2ab377"/></linearGradient></defs>
+<path d="M90 110 H710" stroke="url(#adL)" stroke-width="3" opacity=".5"/>
+<circle r="6" fill="#00F5FF"><animateMotion path="M90 110 H710" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="6s" repeatCount="indefinite"/></circle>
+<g font-family="monospace" text-anchor="middle">
+  <g><circle cx="90" cy="110" r="32" fill="#0d2b4a" stroke="#FF6B6B" stroke-width="2"/><text x="90" y="118" font-size="22" fill="#FF6B6B" font-weight="bold">A</text>
+  <text x="90" y="176" font-size="13" fill="#D4E6F1">ATENCIÓN</text><text x="90" y="196" font-size="11" fill="#D4E6F1" opacity=".55">Lo que ya pasó</text></g>
+  <g><circle cx="297" cy="110" r="32" fill="#0d2b4a" stroke="#00F5FF" stroke-width="2"/><text x="297" y="118" font-size="22" fill="#00F5FF" font-weight="bold">I</text>
+  <text x="297" y="176" font-size="13" fill="#D4E6F1">INTERÉS</text><text x="297" y="196" font-size="11" fill="#D4E6F1" opacity=".55">Por qué sucede</text></g>
+  <g><circle cx="503" cy="110" r="32" fill="#0d2b4a" stroke="#00B4D8" stroke-width="2"/><text x="503" y="118" font-size="22" fill="#00B4D8" font-weight="bold">D</text>
+  <text x="503" y="176" font-size="13" fill="#D4E6F1">DESEO</text><text x="503" y="196" font-size="11" fill="#D4E6F1" opacity=".55">En qué nos afecta</text></g>
+  <g><circle cx="710" cy="110" r="32" fill="#0d2b4a" stroke="#2ab377" stroke-width="2"/><text x="710" y="118" font-size="22" fill="#2ab377" font-weight="bold">A</text>
+  <text x="710" y="176" font-size="13" fill="#D4E6F1">ACCIÓN</text><text x="710" y="196" font-size="11" fill="#D4E6F1" opacity=".55">Qué hacemos</text></g>
+</g>
+<g font-family="monospace" font-size="11" fill="#D4E6F1" opacity=".45" text-anchor="middle">
+  <text x="90" y="54">01</text><text x="297" y="54">02</text><text x="503" y="54">03</text><text x="710" y="54">04</text>
+</g>
+</svg>

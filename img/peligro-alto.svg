@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Peligro de inundación costera clasificado como alto">
+<defs><radialGradient id="paG" cx=".5" cy=".5"><stop offset="0" stop-color="#FF6B6B" stop-opacity=".22"/><stop offset="1" stop-color="#FF6B6B" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="180" ry="118" fill="url(#paG)"/>
+<g>
+  <path d="M200 44 L318 214 H82 Z" fill="#FF6B6B" fill-opacity=".13" stroke="#FF6B6B" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M200 108 v52" stroke="#FF6B6B" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="200" cy="184" r="6.5" fill="#FF6B6B"/>
+  <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="4s" repeatCount="indefinite"/>
+</g>
+<g fill="none" stroke="#FF6B6B" stroke-width="1.6">
+  <path d="M200 44 L318 214 H82 Z" opacity=".5"><animate attributeName="opacity" values=".5;0" dur="3s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="scale" values="1;1.12" additive="sum" dur="3s" repeatCount="indefinite"/></path>
+</g>
+<g font-family="monospace" text-anchor="middle">
+  <text x="200" y="240" font-size="13" fill="#FF6B6B" letter-spacing="3">PELIGRO ALTO</text>
+</g>
+<g stroke="#D4E6F1" stroke-width="1.4" opacity=".25"><path d="M20 214 H82 M318 214 H380"/></g>
+</svg>

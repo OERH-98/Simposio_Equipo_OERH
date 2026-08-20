@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="El Niño y La Niña alteran temporalmente el nivel del mar">
+<defs>
+  <linearGradient id="nnC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6B6B" stop-opacity=".5"/><stop offset="1" stop-color="#5a1f1f" stop-opacity=".7"/></linearGradient>
+  <linearGradient id="nnF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00F5FF" stop-opacity=".5"/><stop offset="1" stop-color="#052f45" stop-opacity=".8"/></linearGradient>
+</defs>
+<text x="100" y="34" font-family="monospace" font-size="13" fill="#FF6B6B" text-anchor="middle">EL NIÑO</text>
+<rect x="24" y="98" width="152" height="90" rx="6" fill="url(#nnC)"/>
+<path d="M24 98 q19 -12 38 0 t38 0 t38 0 t38 0" fill="none" stroke="#ffb3a0" stroke-width="2">
+  <animateTransform attributeName="transform" type="translate" values="0 -4;0 -12;0 -4" dur="5s" repeatCount="indefinite"/>
+</path>
+<g stroke="#FF6B6B" stroke-width="2" stroke-linecap="round" fill="none">
+  <path d="M60 78 q7 -10 0 -18"><animate attributeName="opacity" values=".3;.9;.3" dur="3s" repeatCount="indefinite"/></path>
+  <path d="M100 78 q7 -10 0 -18"><animate attributeName="opacity" values=".9;.3;.9" dur="3s" repeatCount="indefinite"/></path>
+  <path d="M140 78 q7 -10 0 -18"><animate attributeName="opacity" values=".3;.9;.3" dur="3.6s" repeatCount="indefinite"/></path>
+</g>
+<text x="100" y="212" font-family="monospace" font-size="11" fill="#D4E6F1" text-anchor="middle" opacity=".7">océano más cálido</text>
+<text x="100" y="232" font-family="monospace" font-size="11" fill="#FF6B6B" text-anchor="middle">el nivel sube temporalmente</text>
+
+<path d="M200 56 V208" stroke="#D4E6F1" stroke-width="1" opacity=".18"/>
+
+<text x="300" y="34" font-family="monospace" font-size="13" fill="#00F5FF" text-anchor="middle">LA NIÑA</text>
+<rect x="224" y="116" width="152" height="72" rx="6" fill="url(#nnF)"/>
+<path d="M224 116 q19 -10 38 0 t38 0 t38 0 t38 0" fill="none" stroke="#9ff6ff" stroke-width="2">
+  <animateTransform attributeName="transform" type="translate" values="0 0;0 7;0 0" dur="5s" repeatCount="indefinite"/>
+</path>
+<g fill="#9ff6ff">
+  <circle cx="256" cy="84" r="2.6"><animate attributeName="cy" values="72;108" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="2.4s" repeatCount="indefinite"/></circle>
+  <circle cx="300" cy="80" r="2.2"><animate attributeName="cy" values="68;112" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="3s" repeatCount="indefinite"/></circle>
+  <circle cx="342" cy="86" r="2.4"><animate attributeName="cy" values="72;110" dur="2.7s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="2.7s" repeatCount="indefinite"/></circle>
+</g>
+<text x="300" y="212" font-family="monospace" font-size="11" fill="#D4E6F1" text-anchor="middle" opacity=".7">más lluvia al océano</text>
+<text x="300" y="232" font-family="monospace" font-size="11" fill="#00F5FF" text-anchor="middle">el nivel puede descender</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Consumo de combustible fósil y sus emisiones">
+<defs><radialGradient id="cbG" cx=".5" cy=".55"><stop offset="0" stop-color="#FF6B6B" stop-opacity=".18"/><stop offset="1" stop-color="#FF6B6B" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="140" rx="180" ry="112" fill="url(#cbG)"/>
+<g>
+  <rect x="96" y="104" width="76" height="116" rx="6" fill="#16466a" stroke="#00B4D8" stroke-width="2"/>
+  <rect x="108" y="120" width="52" height="34" rx="3" fill="#0B1E36"/>
+  <text x="134" y="144" font-family="monospace" font-size="16" fill="#00F5FF" text-anchor="middle">95</text>
+  <rect x="112" y="170" width="44" height="8" rx="4" fill="#00B4D8" opacity=".4"/>
+  <path d="M172 130 h22 q8 0 8 8 v46 q0 8 8 8" fill="none" stroke="#8a99a8" stroke-width="4"/>
+  <rect x="204" y="184" width="14" height="26" rx="3" fill="#8a99a8"/>
+</g>
+<g fill="#8a99a8" opacity=".55">
+  <ellipse cx="236" cy="96" rx="16" ry="12"><animate attributeName="cy" values="106;48" dur="5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".55;0" dur="5s" repeatCount="indefinite"/><animate attributeName="rx" values="10;26" dur="5s" repeatCount="indefinite"/></ellipse>
+  <ellipse cx="266" cy="112" rx="13" ry="10"><animate attributeName="cy" values="118;54" dur="6.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0" dur="6.4s" repeatCount="indefinite"/><animate attributeName="rx" values="9;24" dur="6.4s" repeatCount="indefinite"/></ellipse>
+  <ellipse cx="300" cy="104" rx="14" ry="11"><animate attributeName="cy" values="114;44" dur="5.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;0" dur="5.6s" repeatCount="indefinite"/><animate attributeName="rx" values="10;25" dur="5.6s" repeatCount="indefinite"/></ellipse>
+</g>
+<rect y="220" width="400" height="40" fill="#0a2136" opacity=".55"/>
+<g stroke="#D4E6F1" stroke-width="1.6" opacity=".25" stroke-dasharray="12 10"><path d="M0 240 H400"/></g>
+<text x="200" y="252" font-family="monospace" font-size="11" fill="#FF6B6B" text-anchor="middle">tan cotidiano que deja de verse</text>
+</svg>

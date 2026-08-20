@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Esquema de la ribera de mar de uso público y las franjas de retiro">
+<defs><linearGradient id="rbS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00F5FF" stop-opacity=".45"/><stop offset="1" stop-color="#062f45" stop-opacity=".9"/></linearGradient></defs>
+<rect y="150" width="400" height="110" fill="#d8c19b" opacity=".38"/>
+<path d="M0 150 q30 -14 60 0 t60 0 v110 H0 Z" fill="url(#rbS)">
+  <animateTransform attributeName="transform" type="translate" values="0 0;18 -4;0 0" dur="6s" repeatCount="indefinite"/>
+</path>
+<path d="M0 150 q30 -14 60 0 t60 0" fill="none" stroke="#9ff6ff" stroke-width="2.2" opacity=".8">
+  <animateTransform attributeName="transform" type="translate" values="0 0;18 -4;0 0" dur="6s" repeatCount="indefinite"/>
+</path>
+<rect x="120" y="150" width="60" height="110" fill="#FF6B6B" opacity=".12"/>
+<rect x="180" y="150" width="70" height="110" fill="#00B4D8" opacity=".1"/>
+<rect x="250" y="150" width="70" height="110" fill="#2ab377" opacity=".1"/>
+<g stroke="#FF6B6B" stroke-width="1.8" stroke-dasharray="5 4"><path d="M120 60 V240"/><path d="M180 60 V240"/></g>
+<g stroke="#00B4D8" stroke-width="1.8" stroke-dasharray="5 4"><path d="M250 60 V240"/></g>
+<g stroke="#2ab377" stroke-width="1.8" stroke-dasharray="5 4"><path d="M320 60 V240"/></g>
+<g font-family="monospace" font-size="10" text-anchor="middle">
+  <text x="150" y="52" fill="#FF6B6B">10 m</text>
+  <text x="215" y="52" fill="#00B4D8">20 m</text>
+  <text x="285" y="52" fill="#2ab377">30 m</text>
+</g>
+<g stroke="#D4E6F1" stroke-width="1.2" opacity=".45"><path d="M120 66 H180 M180 66 H250 M250 66 H320"/></g>
+<text x="150" y="82" font-family="monospace" font-size="9" fill="#FF6B6B" text-anchor="middle">uso público</text>
+<g>
+  <rect x="336" y="122" width="52" height="42" fill="#16466a"/><path d="M330 122 L362 98 L394 122 Z" fill="#00B4D8" opacity=".85"/>
+  <rect x="352" y="140" width="20" height="24" fill="#0B1E36" opacity=".55"/>
+  <g stroke="#8a6f4e" stroke-width="5" stroke-linecap="round"><path d="M344 188 v-24 M380 188 v-24"/></g>
+</g>
+<g>
+  <rect x="196" y="128" width="42" height="36" fill="#14415f" opacity=".55"/><path d="M190 128 L217 108 L244 128 Z" fill="#1b5580" opacity=".55"/>
+  <path d="M202 138 l30 20 M232 138 l-30 20" stroke="#FF6B6B" stroke-width="2.2" opacity=".8"/>
+</g>
+<text x="200" y="250" font-family="monospace" font-size="10.5" fill="#D4E6F1" text-anchor="middle" opacity=".7">20 o 30 m de retiro pueden no ser suficientes</text>
+</svg>

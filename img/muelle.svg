@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Muelle costero golpeado por oleaje extremo">
+<defs>
+  <linearGradient id="mlS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00F5FF" stop-opacity=".45"/><stop offset="1" stop-color="#062f45" stop-opacity=".9"/></linearGradient>
+  <radialGradient id="mlG" cx=".5" cy=".5"><stop offset="0" stop-color="#FF6B6B" stop-opacity=".2"/><stop offset="1" stop-color="#FF6B6B" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="200" cy="130" rx="180" ry="118" fill="url(#mlG)"/>
+<g stroke="#6b5b4a" stroke-width="7" stroke-linecap="round"><path d="M60 212 V150 M110 216 V150 M160 216 V150 M210 214 V150 M262 218 V150"/></g>
+<rect x="40" y="134" width="250" height="16" rx="3" fill="#8a7660"/>
+<g stroke="#5a4c3d" stroke-width="2" opacity=".6"><path d="M70 134 v16 M110 134 v16 M150 134 v16 M190 134 v16 M230 134 v16 M266 134 v16"/></g>
+<g transform="rotate(16 312 146)"><rect x="292" y="138" width="44" height="14" rx="3" fill="#8a7660" opacity=".75"/></g>
+<g transform="rotate(-24 350 178)"><rect x="332" y="172" width="36" height="12" rx="3" fill="#6b5b4a" opacity=".6"/></g>
+<path d="M0 160 q40 -30 90 -6 q40 20 70 -10 q40 -34 90 -4 q40 22 80 -8 q30 -22 70 -2 v140 H0 Z" fill="url(#mlS)">
+  <animateTransform attributeName="transform" type="translate" values="0 6;-40 -10;0 6" dur="5s" repeatCount="indefinite"/>
+</path>
+<path d="M0 160 q40 -30 90 -6 q40 20 70 -10 q40 -34 90 -4 q40 22 80 -8 q30 -22 70 -2" fill="none" stroke="#9ff6ff" stroke-width="2.4" opacity=".8">
+  <animateTransform attributeName="transform" type="translate" values="0 6;-40 -10;0 6" dur="5s" repeatCount="indefinite"/>
+</path>
+<g fill="#e8fbff">
+  <circle cx="120" cy="140" r="6"><animate attributeName="cy" values="150;96" dur="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".85;0" dur="2.6s" repeatCount="indefinite"/></circle>
+  <circle cx="176" cy="146" r="5"><animate attributeName="cy" values="152;104" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="3.2s" repeatCount="indefinite"/></circle>
+  <circle cx="246" cy="142" r="7"><animate attributeName="cy" values="150;90" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="2.2s" repeatCount="indefinite"/></circle>
+</g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="El hielo apoyado en tierra sí hace subir el nivel del mar al derretirse">
+<defs>
+  <linearGradient id="htW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00F5FF" stop-opacity=".5"/><stop offset="1" stop-color="#05304a" stop-opacity=".9"/></linearGradient>
+  <linearGradient id="htI" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eaf8ff"/><stop offset="1" stop-color="#8fd3e8"/></linearGradient>
+</defs>
+<rect x="88" y="52" width="224" height="164" rx="10" fill="none" stroke="#9fd8ec" stroke-width="3"/>
+<path d="M92 212 V150 q34 -8 62 -2 q30 6 44 -4 v68 Z" fill="#4a3f33"/>
+<path d="M96 152 L128 84 L156 128 L182 96 L206 148 Z" fill="url(#htI)"/>
+<rect x="198" y="152" width="110" height="60" rx="5" fill="url(#htW)">
+  <animate attributeName="y" values="158;142;158" dur="6s" repeatCount="indefinite"/>
+  <animate attributeName="height" values="54;70;54" dur="6s" repeatCount="indefinite"/>
+</rect>
+<path d="M198 158 h110" stroke="#9ff6ff" stroke-width="2.4">
+  <animate attributeName="d" values="M198 158 h110;M198 142 h110;M198 158 h110" dur="6s" repeatCount="indefinite"/>
+</path>
+<g fill="#9ff6ff">
+  <circle cx="180" cy="160" r="3"><animate attributeName="cy" values="150;186" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2.2s" repeatCount="indefinite"/></circle>
+  <circle cx="152" cy="164" r="2.6"><animate attributeName="cy" values="152;190" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2.8s" repeatCount="indefinite"/></circle>
+</g>
+<g stroke="#FF6B6B" stroke-width="2.4" fill="none" stroke-linecap="round">
+  <path d="M340 180 v-44 M330 144 l10 -10 10 10"><animate attributeName="opacity" values=".35;1;.35" dur="2.8s" repeatCount="indefinite"/></path>
+</g>
+<text x="50" y="96" font-family="monospace" font-size="12.5" fill="#FF6B6B">EL NIVEL SUBE</text>
+<text x="200" y="246" font-family="monospace" font-size="12" fill="#D4E6F1" text-anchor="middle" opacity=".75">glaciares y capas sobre tierra firme</text>
+</svg>

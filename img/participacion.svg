@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Espacio de participación del público">
+<defs><radialGradient id="ptG" cx=".5" cy=".5"><stop offset="0" stop-color="#00F5FF" stop-opacity=".22"/><stop offset="1" stop-color="#00F5FF" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="180" ry="118" fill="url(#ptG)"/>
+<g fill="#D4E6F1">
+  <g opacity=".55"><circle cx="80" cy="150" r="14"/><path d="M80 168 q-20 6 -20 28 v22 h40 v-22 q0 -22 -20 -28 Z"/>
+    <path d="M62 172 q-14 -18 -8 -34" stroke="#00F5FF" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -4;0 0" dur="4.6s" repeatCount="indefinite"/></g>
+  <g><circle cx="164" cy="132" r="16"/><path d="M164 152 q-22 6 -22 30 v26 h44 v-26 q0 -24 -22 -30 Z"/>
+    <path d="M186 156 q18 -22 10 -42" stroke="#00F5FF" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="3.8s" repeatCount="indefinite"/></g>
+  <g opacity=".75"><circle cx="256" cy="144" r="14"/><path d="M256 162 q-20 6 -20 28 v20 h40 v-20 q0 -22 -20 -28 Z"/>
+    <path d="M236 166 q-16 -20 -8 -38" stroke="#00F5FF" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0" dur="5.4s" repeatCount="indefinite"/></g>
+  <g opacity=".45"><circle cx="336" cy="156" r="12"/><path d="M336 172 q-17 5 -17 24 v16 h34 v-16 q0 -19 -17 -24 Z"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur="6.2s" repeatCount="indefinite"/></g>
+</g>
+<g>
+  <circle cx="200" cy="52" r="22" fill="#0d2b4a" stroke="#00F5FF" stroke-width="2"/>
+  <text x="200" y="61" font-family="monospace" font-size="24" fill="#00F5FF" text-anchor="middle">?</text>
+  <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="4s" repeatCount="indefinite"/>
+</g>
+</svg>

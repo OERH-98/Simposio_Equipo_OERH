@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Pesca artesanal afectada por el calentamiento del mar">
+<defs>
+  <linearGradient id="pcS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00F5FF" stop-opacity=".4"/><stop offset="1" stop-color="#062f45" stop-opacity=".9"/></linearGradient>
+  <radialGradient id="pcG" cx=".5" cy=".4"><stop offset="0" stop-color="#FF6B6B" stop-opacity=".16"/><stop offset="1" stop-color="#FF6B6B" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="200" cy="120" rx="180" ry="110" fill="url(#pcG)"/>
+<circle cx="316" cy="66" r="26" fill="#FF6B6B" opacity=".2"/>
+<circle cx="316" cy="66" r="16" fill="#ffb3a0" opacity=".35"/>
+<g>
+  <path d="M126 168 h150 l-22 30 h-106 Z" fill="#c94f3d"/>
+  <path d="M126 168 h150 l-22 30 h-106 Z" fill="none" stroke="#e8785f" stroke-width="1.6"/>
+  <path d="M196 168 v-56" stroke="#8a6f4e" stroke-width="4" stroke-linecap="round"/>
+  <path d="M200 116 l38 44 h-38 Z" fill="#e6eef5" opacity=".85"/>
+  <g stroke="#D4E6F1" stroke-width="2.4" stroke-linecap="round" opacity=".9">
+    <circle cx="164" cy="150" r="8" fill="#D4E6F1" stroke="none"/>
+    <path d="M164 158 v18 M156 196 l8 -20 8 20 M156 166 l-12 10 M172 166 l12 10"/>
+  </g>
+  <animateTransform attributeName="transform" type="rotate" values="-1.6 200 190;1.6 200 190;-1.6 200 190" dur="5s" repeatCount="indefinite"/>
+</g>
+<path d="M0 192 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0 v80 H0 Z" fill="url(#pcS)">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="9s" repeatCount="indefinite"/>
+</path>
+<path d="M0 192 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0" fill="none" stroke="#9ff6ff" stroke-width="2" opacity=".7">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="9s" repeatCount="indefinite"/>
+</path>
+<g fill="#00F5FF" opacity=".45">
+  <path d="M70 224 q12 -9 24 0 q-12 9 -24 0 Z"/><path d="M70 224 l-9 -6 v12 Z"/>
+  <path d="M300 234 q10 -7 20 0 q-10 7 -20 0 Z"/><path d="M300 234 l-8 -5 v10 Z"/>
+</g>
+<text x="200" y="252" font-family="monospace" font-size="11" fill="#FF6B6B" text-anchor="middle">27 ºC → 31 ºC entre 2019 y 2024</text>
+</svg>

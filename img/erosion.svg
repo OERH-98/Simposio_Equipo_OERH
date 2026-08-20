@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="La playa retrocede: el oleaje consume arena en cada marea">
+<defs>
+  <linearGradient id="erS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00F5FF" stop-opacity=".45"/><stop offset="1" stop-color="#062f45" stop-opacity=".9"/></linearGradient>
+  <linearGradient id="erA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6d0a8"/><stop offset="1" stop-color="#b89a6f"/></linearGradient>
+</defs>
+<rect y="150" width="400" height="110" fill="#d8c19b" opacity=".55"/>
+<path d="M120 150 q60 -6 120 0 q80 4 160 0 v110 H120 Z" fill="#e6d0a8" opacity=".35"/>
+<g stroke="#c99f68" stroke-width="5" stroke-linecap="round"><path d="M318 210 v-40"/></g>
+<path d="M318 170 q-28 -6 -38 10 q24 -4 38 4 Z" fill="#1f8a5c"/>
+<path d="M318 170 q28 -6 38 10 q-24 -4 -38 4 Z" fill="#27a56d"/>
+<path d="M0 148 q40 -20 80 -4 q40 16 80 -2 v118 H0 Z" fill="url(#erS)">
+  <animateTransform attributeName="transform" type="translate" values="0 0;46 -6;0 0" dur="6s" repeatCount="indefinite"/>
+</path>
+<path d="M0 148 q40 -20 80 -4 q40 16 80 -2" fill="none" stroke="#9ff6ff" stroke-width="2.2" opacity=".8">
+  <animateTransform attributeName="transform" type="translate" values="0 0;46 -6;0 0" dur="6s" repeatCount="indefinite"/>
+</path>
+<g stroke="#FF6B6B" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="6 5" opacity=".85">
+  <path d="M160 96 V214"/><path d="M244 96 V214"/>
+</g>
+<g font-family="monospace" font-size="10.5" fill="#FF6B6B">
+  <text x="164" y="88">hoy</text><text x="248" y="88">antes</text>
+</g>
+<g stroke="#FF6B6B" stroke-width="2.4" fill="none" stroke-linecap="round">
+  <path d="M242 120 H166 M178 110 l-12 10 12 10"><animate attributeName="opacity" values=".35;1;.35" dur="3.2s" repeatCount="indefinite"/></path>
+</g>
+<text x="200" y="248" font-family="monospace" font-size="11" fill="#D4E6F1" text-anchor="middle" opacity=".7">la línea de costa nos obliga a retroceder</text>
+</svg>

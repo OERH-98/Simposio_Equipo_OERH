@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="No hace falta mirar lejos: también ocurre en la costa salvadoreña">
+<defs><radialGradient id="lcG" cx=".5" cy=".5"><stop offset="0" stop-color="#00B4D8" stop-opacity=".2"/><stop offset="1" stop-color="#00B4D8" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="180" ry="118" fill="url(#lcG)"/>
+<circle cx="200" cy="130" r="86" fill="#0d2b4a" stroke="#00B4D8" stroke-width="1.6"/>
+<g fill="none" stroke="#00F5FF" stroke-width="1" opacity=".35">
+  <ellipse cx="200" cy="130" rx="86" ry="34"/><ellipse cx="200" cy="130" rx="46" ry="86"/><path d="M114 130 h172 M200 44 v172"/>
+</g>
+<g fill="#1f8a5c" opacity=".55">
+  <path d="M148 96 q26 -12 44 4 q-8 20 -30 22 q-20 0 -14 -26 Z"/>
+  <path d="M214 148 q30 -6 40 14 q-14 20 -34 16 q-16 -6 -6 -30 Z"/>
+</g>
+<g>
+  <circle cx="164" cy="102" r="5" fill="#FF6B6B" opacity=".7"><animate attributeName="opacity" values=".25;.85;.25" dur="3s" repeatCount="indefinite"/></circle>
+  <text x="120" y="82" font-family="monospace" font-size="10" fill="#D4E6F1" opacity=".6">España</text>
+</g>
+<g>
+  <circle cx="238" cy="170" r="5" fill="#FF6B6B" opacity=".7"><animate attributeName="opacity" values=".85;.25;.85" dur="3s" repeatCount="indefinite"/></circle>
+  <text x="248" y="192" font-family="monospace" font-size="10" fill="#D4E6F1" opacity=".6">Argentina</text>
+</g>
+<g>
+  <circle cx="188" cy="136" r="30" fill="none" stroke="#00F5FF" stroke-width="2"><animate attributeName="r" values="14;40" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2.8s" repeatCount="indefinite"/></circle>
+  <circle cx="188" cy="136" r="8" fill="#00F5FF"/>
+</g>
+<g stroke="#00F5FF" stroke-width="2.4" fill="none" stroke-linecap="round">
+  <path d="M300 66 L214 124"/><path d="M300 66 l-2 26 26 -6 Z" fill="#00F5FF" stroke="none"/>
+</g>
+<text x="238" y="52" font-family="monospace" font-size="12.5" fill="#00F5FF">aquí</text>
+</svg>

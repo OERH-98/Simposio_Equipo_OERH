@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Objetos de plástico de uso cotidiano">
+<defs><radialGradient id="plG" cx=".5" cy=".5"><stop offset="0" stop-color="#00B4D8" stop-opacity=".2"/><stop offset="1" stop-color="#00B4D8" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="180" ry="118" fill="url(#plG)"/>
+<g>
+  <path d="M96 88 h22 v-12 h-22 Z" fill="#9fd8ec" opacity=".8"/>
+  <path d="M92 88 q-14 12 -14 34 v58 q0 12 12 12 h40 q12 0 12 -12 v-58 q0 -22 -14 -34 Z" fill="#9fd8ec" opacity=".45" stroke="#9ff6ff" stroke-width="1.6"/>
+  <rect x="82" y="138" width="52" height="30" rx="3" fill="#00F5FF" opacity=".22"/>
+  <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0" dur="6s" repeatCount="indefinite"/>
+</g>
+<g>
+  <path d="M180 108 q30 -20 62 0 l-8 74 q-24 10 -46 0 Z" fill="#e6eef5" opacity=".4" stroke="#D4E6F1" stroke-width="1.6"/>
+  <path d="M180 108 q30 -20 62 0" fill="none" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M190 138 q22 -8 42 0" fill="none" stroke="#D4E6F1" stroke-width="1.2" opacity=".5"/>
+  <animateTransform attributeName="transform" type="translate" values="0 0;0 -7;0 0" dur="7.4s" repeatCount="indefinite"/>
+</g>
+<g>
+  <rect x="278" y="120" width="70" height="50" rx="8" fill="#FF6B6B" opacity=".35" stroke="#FF9E7A" stroke-width="1.6"/>
+  <circle cx="296" cy="182" r="10" fill="#FF9E7A" opacity=".55"/><circle cx="332" cy="182" r="10" fill="#FF9E7A" opacity=".55"/>
+  <path d="M292 120 v-14 h42 v14" fill="none" stroke="#FF9E7A" stroke-width="2.4"/>
+  <animateTransform attributeName="transform" type="translate" values="0 0;0 -4;0 0" dur="5.4s" repeatCount="indefinite"/>
+</g>
+<g font-family="monospace" font-size="10.5" fill="#D4E6F1" opacity=".6" text-anchor="middle">
+  <text x="108" y="206">bolsas</text><text x="211" y="206">botellas</text><text x="313" y="212">juguetes</text>
+</g>
+<text x="200" y="242" font-family="monospace" font-size="11.5" fill="#00F5FF" text-anchor="middle">¿quién de aquí no ha usado alguno hoy?</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Pausa activa">
+<defs><radialGradient id="pauG" cx=".5" cy=".5"><stop offset="0" stop-color="#2ab377" stop-opacity=".26"/><stop offset="1" stop-color="#2ab377" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="180" ry="120" fill="url(#pauG)"/>
+<circle cx="200" cy="130" r="76" fill="none" stroke="#2ab377" stroke-width="2" opacity=".45">
+  <animate attributeName="r" values="72;92" dur="3.6s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values=".5;0" dur="3.6s" repeatCount="indefinite"/>
+</circle>
+<circle cx="200" cy="130" r="62" fill="#0d2b4a" stroke="#2ab377" stroke-width="2.4"/>
+<g fill="#5fe0a5">
+  <rect x="180" y="102" width="12" height="56" rx="5"><animate attributeName="height" values="56;40;56" dur="3s" repeatCount="indefinite"/><animate attributeName="y" values="102;110;102" dur="3s" repeatCount="indefinite"/></rect>
+  <rect x="208" y="102" width="12" height="56" rx="5"><animate attributeName="height" values="40;56;40" dur="3s" repeatCount="indefinite"/><animate attributeName="y" values="110;102;110" dur="3s" repeatCount="indefinite"/></rect>
+</g>
+<g stroke="#2ab377" stroke-width="2" stroke-linecap="round" opacity=".7" fill="none">
+  <path d="M92 92 q-14 -16 0 -30"><animate attributeName="opacity" values=".25;.8;.25" dur="4s" repeatCount="indefinite"/></path>
+  <path d="M308 92 q14 -16 0 -30"><animate attributeName="opacity" values=".8;.25;.8" dur="4s" repeatCount="indefinite"/></path>
+  <path d="M76 178 q-16 14 0 28"><animate attributeName="opacity" values=".25;.7;.25" dur="5s" repeatCount="indefinite"/></path>
+  <path d="M324 178 q16 14 0 28"><animate attributeName="opacity" values=".7;.25;.7" dur="5s" repeatCount="indefinite"/></path>
+</g>
+</svg>
