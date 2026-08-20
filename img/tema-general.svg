@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Ecosistemas marino-costeros">
+<defs>
+  <radialGradient id="tgG" cx=".5" cy=".5"><stop offset="0" stop-color="#00B4D8" stop-opacity=".30"/><stop offset="1" stop-color="#00B4D8" stop-opacity="0"/></radialGradient>
+  <clipPath id="tgC"><circle cx="200" cy="130" r="78"/></clipPath>
+</defs>
+<ellipse cx="200" cy="130" rx="170" ry="120" fill="url(#tgG)"/>
+<circle cx="200" cy="130" r="78" fill="#0d2b4a" stroke="#00B4D8" stroke-width="1.5"/>
+<g clip-path="url(#tgC)">
+  <path d="M0 150 q50 -14 100 0 t100 0 t100 0 t100 0 t100 0 v120 H0 Z" fill="#00B4D8" opacity=".45">
+    <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="11s" repeatCount="indefinite"/>
+  </path>
+  <path d="M120 154 q22 -34 48 -8 q20 -26 46 4 q18 -16 34 4 v40 H120 Z" fill="#1f8a5c" opacity=".9"/>
+  <path d="M0 170 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0 v120 H0 Z" fill="#00F5FF" opacity=".26">
+    <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="7s" repeatCount="indefinite"/>
+  </path>
+</g>
+<g fill="none" stroke="#00F5FF" stroke-width="1.2" opacity=".45">
+  <ellipse cx="200" cy="130" rx="78" ry="30"/><path d="M200 52 v156"/>
+</g>
+<circle cx="200" cy="130" r="94" fill="none" stroke="#00F5FF" stroke-width="1" stroke-dasharray="4 10" opacity=".5">
+  <animateTransform attributeName="transform" type="rotate" from="0 200 130" to="360 200 130" dur="40s" repeatCount="indefinite"/>
+</circle>
+</svg>

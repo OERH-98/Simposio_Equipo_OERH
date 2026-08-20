@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Satélite midiendo la altura del océano">
+<defs>
+  <radialGradient id="stG" cx=".5" cy=".2"><stop offset="0" stop-color="#00F5FF" stop-opacity=".22"/><stop offset="1" stop-color="#00F5FF" stop-opacity="0"/></radialGradient>
+  <linearGradient id="stB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00F5FF" stop-opacity=".35"/><stop offset="1" stop-color="#00F5FF" stop-opacity="0"/></linearGradient>
+</defs>
+<ellipse cx="200" cy="90" rx="180" ry="110" fill="url(#stG)"/>
+<g>
+  <rect x="180" y="52" width="40" height="30" rx="4" fill="#16466a" stroke="#00B4D8" stroke-width="1.6"/>
+  <rect x="132" y="58" width="42" height="18" rx="2" fill="#0e3454" stroke="#00B4D8" stroke-width="1.2"/>
+  <rect x="226" y="58" width="42" height="18" rx="2" fill="#0e3454" stroke="#00B4D8" stroke-width="1.2"/>
+  <g stroke="#00F5FF" stroke-width="1" opacity=".6"><path d="M146 58 v18 M160 58 v18 M240 58 v18 M254 58 v18"/></g>
+  <path d="M200 82 v10" stroke="#8a99a8" stroke-width="3"/>
+  <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="6s" repeatCount="indefinite"/>
+</g>
+<path d="M200 92 L166 190 h68 Z" fill="url(#stB)">
+  <animate attributeName="opacity" values=".35;1;.35" dur="2.6s" repeatCount="indefinite"/>
+</path>
+<g stroke="#00F5FF" stroke-width="1.6" fill="none" opacity=".8">
+  <path d="M200 100 v18"><animate attributeName="opacity" values="1;0;1" dur="1.6s" repeatCount="indefinite"/></path>
+  <path d="M200 128 v14"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></path>
+</g>
+<path d="M0 192 q50 -14 100 0 t100 0 t100 0 t100 0 t100 0 v90 H0 Z" fill="#00B4D8" opacity=".32">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="10s" repeatCount="indefinite"/>
+</path>
+<path d="M0 192 q50 -14 100 0 t100 0 t100 0 t100 0 t100 0" fill="none" stroke="#00F5FF" stroke-width="1.8" opacity=".7">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="10s" repeatCount="indefinite"/>
+</path>
+<g fill="#D4E6F1" opacity=".5"><circle cx="60" cy="40" r="1.6"/><circle cx="330" cy="30" r="1.4"/><circle cx="300" cy="120" r="1.5"/><circle cx="92" cy="110" r="1.3"/></g>
+</svg>

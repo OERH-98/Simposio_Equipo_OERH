@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Áreas naturales protegidas">
+<circle cx="60" cy="60" r="46" fill="#0d2b4a" stroke="#00B4D8" stroke-width="1.4" opacity=".9"/>
+<circle cx="60" cy="60" r="54" fill="none" stroke="#00F5FF" stroke-width="1" stroke-dasharray="3 8" opacity=".45">
+  <animateTransform attributeName="transform" type="rotate" from="360 60 60" to="0 60 60" dur="38s" repeatCount="indefinite"/>
+</circle>
+<path d="M60 30 l24 10 v22 c0 16 -12 26 -24 30 c-12 -4 -24 -14 -24 -30 V40 Z" fill="#00B4D8" fill-opacity=".18" stroke="#00F5FF" stroke-width="2"/>
+<g stroke="#2ab377" stroke-width="2.6" fill="none" stroke-linecap="round"><path d="M60 82 V60"/></g>
+<ellipse cx="53" cy="58" rx="11" ry="7" fill="#1f8a5c"/><ellipse cx="67" cy="54" rx="10" ry="6.5" fill="#2ab377"/>
+</svg>

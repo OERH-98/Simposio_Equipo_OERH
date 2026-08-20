@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Convención Ramsar sobre humedales">
+<defs><clipPath id="rmC"><circle cx="60" cy="60" r="46"/></clipPath></defs>
+<circle cx="60" cy="60" r="46" fill="#0d2b4a" stroke="#00B4D8" stroke-width="1.4" opacity=".9"/>
+<g clip-path="url(#rmC)">
+  <path d="M0 74 q15 -6 30 0 t30 0 t30 0 t30 0 t30 0 v50 H0 Z" fill="#00B4D8" opacity=".4">
+    <animateTransform attributeName="transform" type="translate" values="0 0;-60 0" dur="8s" repeatCount="indefinite"/>
+  </path>
+  <g stroke="#2ab377" stroke-width="2.4" fill="none" stroke-linecap="round"><path d="M40 76 V52 M50 76 V46 M60 76 V56"/></g>
+  <ellipse cx="76" cy="60" rx="14" ry="9" fill="#1f8a5c"/>
+  <path d="M76 68 v10" stroke="#5b4630" stroke-width="3"/>
+</g>
+<circle cx="60" cy="60" r="54" fill="none" stroke="#00F5FF" stroke-width="1" stroke-dasharray="3 8" opacity=".45">
+  <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="30s" repeatCount="indefinite"/>
+</circle>
+</svg>

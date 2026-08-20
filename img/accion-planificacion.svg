@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Acción: planificación municipal con índices de vulnerabilidad">
+<defs><radialGradient id="apG" cx=".5" cy=".5"><stop offset="0" stop-color="#00B4D8" stop-opacity=".22"/><stop offset="1" stop-color="#00B4D8" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="180" ry="115" fill="url(#apG)"/>
+<rect x="70" y="44" width="260" height="172" rx="8" fill="#0d2b4a" stroke="#00B4D8" stroke-width="1.6"/>
+<g stroke="#00B4D8" stroke-width=".8" opacity=".25"><path d="M110 44 v172 M150 44 v172 M190 44 v172 M230 44 v172 M270 44 v172 M310 44 v172 M70 84 h260 M70 124 h260 M70 164 h260"/></g>
+<path d="M70 150 q40 -14 80 -4 q44 12 82 -8 q40 -20 98 -6 v84 H70 Z" fill="#00F5FF" opacity=".14"/>
+<path d="M70 150 q40 -14 80 -4 q44 12 82 -8 q40 -20 98 -6" fill="none" stroke="#00F5FF" stroke-width="2" opacity=".8"/>
+<g>
+  <rect x="96" y="98" width="26" height="26" rx="3" fill="#FF6B6B" opacity=".65"><animate attributeName="opacity" values=".35;.8;.35" dur="3.4s" repeatCount="indefinite"/></rect>
+  <rect x="132" y="112" width="26" height="26" rx="3" fill="#FF6B6B" opacity=".45"/>
+  <rect x="206" y="90" width="26" height="26" rx="3" fill="#00F5FF" opacity=".4"/>
+  <rect x="248" y="106" width="26" height="26" rx="3" fill="#00B4D8" opacity=".45"/>
+  <rect x="286" y="86" width="26" height="26" rx="3" fill="#FF6B6B" opacity=".55"><animate attributeName="opacity" values=".7;.3;.7" dur="3.4s" repeatCount="indefinite"/></rect>
+</g>
+<g fill="#D4E6F1" opacity=".8">
+  <circle cx="176" cy="72" r="7"/><path d="M176 68 v-16 l20 8 -20 8 Z" fill="#00F5FF"/>
+</g>
+<g stroke="#D4E6F1" stroke-width="1.4" opacity=".35"><path d="M86 232 h64 M166 232 h64 M246 232 h64"/></g>
+</svg>

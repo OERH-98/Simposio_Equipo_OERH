@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Objetivos del estudio">
+<defs><radialGradient id="toG" cx=".5" cy=".5"><stop offset="0" stop-color="#00F5FF" stop-opacity=".26"/><stop offset="1" stop-color="#00F5FF" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="160" ry="115" fill="url(#toG)"/>
+<g fill="none" stroke="#00B4D8" stroke-width="2">
+  <circle cx="200" cy="130" r="84" opacity=".35"><animate attributeName="r" values="84;92;84" dur="5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".35;.08;.35" dur="5s" repeatCount="indefinite"/></circle>
+  <circle cx="200" cy="130" r="58" opacity=".55"/>
+  <circle cx="200" cy="130" r="32" opacity=".85" stroke="#00F5FF"/>
+</g>
+<circle cx="200" cy="130" r="11" fill="#FF6B6B"><animate attributeName="opacity" values="1;.45;1" dur="2.4s" repeatCount="indefinite"/></circle>
+<g stroke="#00F5FF" stroke-width="2.5" stroke-linecap="round" fill="none">
+  <path d="M300 32 L216 116"/>
+</g>
+<path d="M300 32 l-6 28 28-6 Z" fill="#00F5FF"/>
+<g stroke="#D4E6F1" stroke-width="1.4" opacity=".3"><path d="M200 24 v20 M200 216 v20 M92 130 h20 M288 130 h20"/></g>
+</svg>

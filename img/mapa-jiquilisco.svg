@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 340" role="img" aria-label="Mapa esquemático de la costa salvadoreña y la Bahía de Jiquilisco">
+<defs>
+  <linearGradient id="mpSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00B4D8" stop-opacity=".35"/><stop offset="1" stop-color="#05304a" stop-opacity=".8"/></linearGradient>
+  <radialGradient id="mpG" cx=".62" cy=".55"><stop offset="0" stop-color="#FF6B6B" stop-opacity=".22"/><stop offset="1" stop-color="#FF6B6B" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="500" height="340" fill="#0a2136" opacity=".35" rx="14"/>
+<g stroke="#00B4D8" stroke-width=".7" opacity=".16"><path d="M0 60 h500 M0 120 h500 M0 180 h500 M0 240 h500 M0 300 h500 M80 0 v340 M160 0 v340 M240 0 v340 M320 0 v340 M400 0 v340"/></g>
+<path d="M0 0 H500 V150 q-40 6 -70 24 q-36 22 -74 12 q-40 -10 -74 14 q-32 20 -74 8 q-44 -12 -78 16 q-34 24 -60 12 V0 Z" fill="#123a5c"/>
+<path d="M0 340 H500 V150 q-40 6 -70 24 q-36 22 -74 12 q-40 -10 -74 14 q-32 20 -74 8 q-44 -12 -78 16 q-34 24 -60 12 Z" fill="url(#mpSea)"/>
+<path d="M500 150 q-40 6 -70 24 q-36 22 -74 12 q-40 -10 -74 14 q-32 20 -74 8 q-44 -12 -78 16 q-34 24 -60 12" fill="none" stroke="#00F5FF" stroke-width="2" opacity=".8"/>
+<path d="M500 158 q-40 6 -70 24 q-36 22 -74 12 q-40 -10 -74 14 q-32 20 -74 8 q-44 -12 -78 16 q-34 24 -60 12" fill="none" stroke="#FF6B6B" stroke-width="6" opacity=".35" stroke-linecap="round">
+  <animate attributeName="opacity" values=".18;.5;.18" dur="4s" repeatCount="indefinite"/>
+</path>
+<g fill="#1f8a5c" opacity=".85">
+  <ellipse cx="330" cy="196" rx="34" ry="14"/><ellipse cx="368" cy="188" rx="26" ry="11"/><ellipse cx="300" cy="204" rx="20" ry="9"/>
+</g>
+<g>
+  <circle cx="344" cy="192" r="26" fill="none" stroke="#00F5FF" stroke-width="1.6" opacity=".8"><animate attributeName="r" values="20;40" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="3.2s" repeatCount="indefinite"/></circle>
+  <circle cx="344" cy="192" r="7" fill="#00F5FF"/>
+</g>
+<g fill="#D4E6F1" opacity=".55"><circle cx="118" cy="152" r="4"/><circle cx="210" cy="176" r="4"/></g>
+<g font-family="monospace" font-size="12" fill="#D4E6F1" opacity=".75">
+  <text x="96" y="142">La Libertad</text>
+  <text x="188" y="166">Costa central</text>
+</g>
+<text x="300" y="238" font-family="monospace" font-size="13" fill="#00F5FF">Bahía de Jiquilisco</text>
+<g fill="none" stroke="#00F5FF" stroke-width="1.4" opacity=".55"><path d="M40 300 h60 M40 296 v8 M100 296 v8"/></g>
+<text x="40" y="322" font-family="monospace" font-size="11" fill="#D4E6F1" opacity=".6">COSTA DEL PACÍFICO</text>
+</svg>

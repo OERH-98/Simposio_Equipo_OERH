@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Manglar degradado con troncos secos y mayor lámina de agua">
+<defs>
+  <linearGradient id="skyB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#251f2e"/><stop offset="1" stop-color="#3b3340"/></linearGradient>
+  <linearGradient id="waterB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4a52"/><stop offset="1" stop-color="#20232c"/></linearGradient>
+  <g id="mangB">
+    <path d="M0 0 L0 -52 M0 -52 l-18 -20 M0 -52 l16 -22" stroke="#6b5b4a" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M0 0 l-14 18 M0 0 l14 18" stroke="#5a4c3d" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <ellipse cx="0" cy="-62" rx="24" ry="13" fill="#6f8259" opacity=".75"/>
+  </g>
+  <g id="stump">
+    <path d="M0 0 L0 -26 M0 -18 l-12 -12" stroke="#7a6a58" stroke-width="5" fill="none" stroke-linecap="round" opacity=".9"/>
+  </g>
+</defs>
+<rect width="800" height="450" fill="url(#skyB)"/>
+<rect y="272" width="800" height="178" fill="url(#waterB)"/>
+<use href="#mangB" x="180" y="318"/>
+<use href="#mangB" x="560" y="326" transform="translate(560,326) scale(.9) translate(-560,-326)"/>
+<use href="#stump" x="90" y="312"/>
+<use href="#stump" x="300" y="322"/>
+<use href="#stump" x="410" y="308"/>
+<use href="#stump" x="470" y="330"/>
+<use href="#stump" x="680" y="316"/>
+<use href="#stump" x="740" y="328"/>
+<path d="M-200 272 q50 -7 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 v190 H-200 Z" fill="#4a4a52" opacity=".5">
+  <animateTransform attributeName="transform" type="translate" values="0 0;200 0" dur="14s" repeatCount="indefinite"/>
+</path>
+<path d="M-200 272 q50 -7 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0" fill="none" stroke="#c8cdd6" stroke-width="1.6" opacity=".3">
+  <animateTransform attributeName="transform" type="translate" values="0 0;200 0" dur="14s" repeatCount="indefinite"/>
+</path>
+</svg>

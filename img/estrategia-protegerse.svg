@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Estrategia: protegerse con diques y manglar restaurado">
+<defs><radialGradient id="epG" cx=".5" cy=".5"><stop offset="0" stop-color="#27a56d" stop-opacity=".22"/><stop offset="1" stop-color="#27a56d" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="180" ry="115" fill="url(#epG)"/>
+<path d="M0 150 q40 -12 80 0 t80 0 v120 H0 Z" fill="#00B4D8" opacity=".38">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-160 0" dur="8s" repeatCount="indefinite"/>
+</path>
+<g stroke="#5b4630" stroke-width="4.5" fill="none" stroke-linecap="round">
+  <path d="M96 190 v-40 M96 152 l-15-16 M96 160 l14-14"/><path d="M96 190 l-15 20 M96 190 l15 20 M96 190 l-26 20 M96 190 l26 20"/>
+</g>
+<ellipse cx="84" cy="128" rx="26" ry="17" fill="#1f8a5c"/><ellipse cx="110" cy="120" rx="22" ry="15" fill="#27a56d"/><ellipse cx="96" cy="140" rx="30" ry="14" fill="#2ab377" opacity=".9"/>
+<path d="M170 216 L188 108 h34 L240 216 Z" fill="#5c6b78"/>
+<path d="M170 216 L188 108 h34 L240 216 Z" fill="none" stroke="#00F5FF" stroke-width="1.4" opacity=".5"/>
+<g stroke="#8a99a8" stroke-width="1.4" opacity=".5"><path d="M178 170 h54 M182 142 h44"/></g>
+<g fill="none" stroke="#00F5FF" stroke-width="2" opacity=".7">
+  <path d="M150 140 q-14 14 0 28"><animate attributeName="opacity" values=".2;.8;.2" dur="2.6s" repeatCount="indefinite"/></path>
+  <path d="M136 132 q-20 22 0 44"><animate attributeName="opacity" values=".8;.2;.8" dur="2.6s" repeatCount="indefinite"/></path>
+</g>
+<g><rect x="286" y="152" width="70" height="52" rx="3" fill="#16466a" stroke="#00B4D8" stroke-width="1.4"/><path d="M278 152 L321 124 L364 152 Z" fill="#00B4D8" opacity=".85"/><rect x="308" y="170" width="24" height="34" fill="#0B1E36" opacity=".55"/></g>
+<rect y="216" width="400" height="44" fill="#0a2136" opacity=".5"/>
+</svg>

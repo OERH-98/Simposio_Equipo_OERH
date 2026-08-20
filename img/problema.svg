@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="El agua avanza sobre la comunidad costera">
+<defs>
+  <linearGradient id="prS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00F5FF" stop-opacity=".45"/><stop offset="1" stop-color="#062f45" stop-opacity=".9"/></linearGradient>
+  <radialGradient id="prG" cx=".5" cy=".5"><stop offset="0" stop-color="#FF6B6B" stop-opacity=".18"/><stop offset="1" stop-color="#FF6B6B" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="200" cy="130" rx="180" ry="120" fill="url(#prG)"/>
+<g>
+  <rect x="40" y="120" width="58" height="80" fill="#123a5c"/><path d="M34 120 L69 92 L104 120 Z" fill="#1b5580"/>
+  <rect x="118" y="96" width="66" height="104" fill="#14415f"/><path d="M112 96 L151 66 L190 96 Z" fill="#1b5580"/>
+  <rect x="204" y="132" width="54" height="68" fill="#123a5c"/><path d="M198 132 L231 108 L264 132 Z" fill="#1b5580"/>
+  <rect x="278" y="108" width="62" height="92" fill="#14415f"/><path d="M272 108 L309 80 L346 108 Z" fill="#1b5580"/>
+</g>
+<g fill="#00F5FF" opacity=".28"><rect x="56" y="136" width="12" height="14"/><rect x="76" y="136" width="12" height="14"/><rect x="134" y="114" width="14" height="16"/><rect x="158" y="114" width="14" height="16"/><rect x="296" y="126" width="14" height="16"/><rect x="318" y="126" width="14" height="16"/></g>
+<path d="M0 174 q50 -14 100 0 t100 0 t100 0 t100 0 t100 0 v100 H0 Z" fill="url(#prS)" opacity=".8">
+  <animateTransform attributeName="transform" type="translate" values="0 6;-200 -4;0 6" dur="13s" repeatCount="indefinite"/>
+</path>
+<path d="M0 192 q50 -14 100 0 t100 0 t100 0 t100 0 t100 0 v90 H0 Z" fill="#00B4D8" opacity=".38">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="8s" repeatCount="indefinite"/>
+</path>
+<g stroke="#FF6B6B" stroke-width="2.6" fill="none" stroke-linecap="round">
+  <path d="M366 182 v-56"><animate attributeName="opacity" values=".4;1;.4" dur="3s" repeatCount="indefinite"/></path>
+  <path d="M356 136 l10-10 10 10"><animate attributeName="opacity" values=".4;1;.4" dur="3s" repeatCount="indefinite"/></path>
+</g>
+</svg>

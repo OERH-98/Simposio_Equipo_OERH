@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Derretimiento de hielo continental">
+<defs>
+  <radialGradient id="dhG" cx=".5" cy=".4"><stop offset="0" stop-color="#00F5FF" stop-opacity=".2"/><stop offset="1" stop-color="#00F5FF" stop-opacity="0"/></radialGradient>
+  <linearGradient id="dhI" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eaf8ff"/><stop offset="1" stop-color="#8fd3e8"/></linearGradient>
+  <linearGradient id="dhI2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfeeff"/><stop offset="1" stop-color="#6ab4d0"/></linearGradient>
+</defs>
+<ellipse cx="200" cy="120" rx="180" ry="115" fill="url(#dhG)"/>
+<path d="M40 186 L96 62 L150 122 L186 74 L246 186 Z" fill="url(#dhI)" opacity=".95"/>
+<path d="M150 122 L186 74 L246 186 L172 186 Z" fill="url(#dhI2)" opacity=".9"/>
+<path d="M262 186 L300 108 L342 186 Z" fill="url(#dhI2)" opacity=".8"/>
+<g stroke="#0e3454" stroke-width="1.4" opacity=".3" fill="none"><path d="M96 62 L112 108 L150 122 M186 74 L206 126"/></g>
+<g fill="#9ff6ff">
+  <circle cx="128" cy="196" r="3"><animate attributeName="cy" values="188;222" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2.4s" repeatCount="indefinite"/></circle>
+  <circle cx="212" cy="196" r="2.6"><animate attributeName="cy" values="188;222" dur="3.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="3.1s" repeatCount="indefinite"/></circle>
+  <circle cx="300" cy="196" r="2.8"><animate attributeName="cy" values="190;224" dur="2.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2.7s" repeatCount="indefinite"/></circle>
+</g>
+<path d="M0 216 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0 v60 H0 Z" fill="#00B4D8" opacity=".35">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="9s" repeatCount="indefinite"/>
+</path>
+<path d="M0 216 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0" fill="none" stroke="#00F5FF" stroke-width="1.8" opacity=".7">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="9s" repeatCount="indefinite"/>
+</path>
+</svg>

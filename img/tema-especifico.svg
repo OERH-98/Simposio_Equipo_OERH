@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Manglar y vivienda costera">
+<defs><radialGradient id="teG" cx=".5" cy=".6"><stop offset="0" stop-color="#1f8a5c" stop-opacity=".30"/><stop offset="1" stop-color="#1f8a5c" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="150" rx="180" ry="110" fill="url(#teG)"/>
+<g stroke="#5b4630" stroke-width="5" fill="none" stroke-linecap="round">
+  <path d="M96 190 v-52 M96 138 l-18-20 M96 148 l17-16"/>
+  <path d="M96 190 l-18 22 M96 190 l18 22 M96 190 l-30 22 M96 190 l30 22"/>
+</g>
+<g><ellipse cx="82" cy="112" rx="30" ry="20" fill="#1f8a5c"/><ellipse cx="112" cy="102" rx="26" ry="18" fill="#27a56d"/><ellipse cx="96" cy="126" rx="34" ry="17" fill="#2ab377" opacity=".9"/></g>
+<g stroke="#8a6f4e" stroke-width="6" stroke-linecap="round"><path d="M232 214 v-46 M262 214 v-46 M306 214 v-46 M336 214 v-46"/></g>
+<rect x="222" y="140" width="124" height="30" rx="3" fill="#a98457"/>
+<path d="M212 140 L284 100 L356 140 Z" fill="#c99f68"/>
+<rect x="248" y="146" width="16" height="17" rx="2" fill="#0B1E36" opacity=".7"/>
+<rect x="304" y="146" width="16" height="17" rx="2" fill="#0B1E36" opacity=".7"/>
+<path d="M0 206 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0 v60 H0 Z" fill="#00B4D8" opacity=".32">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="10s" repeatCount="indefinite"/>
+</path>
+<path d="M0 206 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0" fill="none" stroke="#00F5FF" stroke-width="1.6" opacity=".6">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="10s" repeatCount="indefinite"/>
+</path>
+</svg>

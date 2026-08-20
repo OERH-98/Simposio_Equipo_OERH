@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Ley de Medio Ambiente">
+<circle cx="60" cy="60" r="46" fill="#0d2b4a" stroke="#00B4D8" stroke-width="1.4" opacity=".9"/>
+<circle cx="60" cy="60" r="54" fill="none" stroke="#00F5FF" stroke-width="1" stroke-dasharray="3 8" opacity=".45">
+  <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="34s" repeatCount="indefinite"/>
+</circle>
+<g stroke="#00F5FF" stroke-width="2.6" fill="none" stroke-linecap="round">
+  <path d="M60 36 v50 M40 44 h40 M46 86 h28"/>
+  <path d="M40 44 l-10 20 h20 Z" fill="#00F5FF" fill-opacity=".18"/>
+  <path d="M80 44 l-10 20 h20 Z" fill="#00F5FF" fill-opacity=".18"/>
+</g>
+<circle cx="60" cy="34" r="4" fill="#00F5FF"/>
+</svg>

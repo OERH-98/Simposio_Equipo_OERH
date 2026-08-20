@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Estrategia: retirarse de la zona de riesgo">
+<defs><radialGradient id="erG" cx=".5" cy=".5"><stop offset="0" stop-color="#FF6B6B" stop-opacity=".15"/><stop offset="1" stop-color="#FF6B6B" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="180" ry="115" fill="url(#erG)"/>
+<path d="M0 176 q50 -12 100 0 t100 0 v100 H0 Z" fill="#00B4D8" opacity=".35">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="10s" repeatCount="indefinite"/>
+</path>
+<g opacity=".45"><rect x="34" y="146" width="46" height="34" fill="#14415f"/><path d="M28 146 L57 124 L86 146 Z" fill="#1b5580"/></g>
+<g stroke="#FF6B6B" stroke-width="2" stroke-dasharray="6 6" fill="none" opacity=".8"><path d="M110 96 v120"/></g>
+<g fill="#D4E6F1">
+  <g>
+    <circle cx="178" cy="120" r="11"/><path d="M178 133 q-15 4 -15 22 v32 h30 v-32 q0 -18 -15 -22 Z"/><path d="M165 190 l-7 24 h7 l9 -20 Z"/><path d="M191 190 l7 24 h-7 l-9 -20 Z"/>
+    <rect x="196" y="152" width="20" height="17" rx="2" fill="#00B4D8"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0;18 0;0 0" dur="6s" repeatCount="indefinite"/>
+  </g>
+</g>
+<g><rect x="286" y="132" width="72" height="60" rx="3" fill="#16466a" stroke="#00F5FF" stroke-width="1.6"/><path d="M278 132 L322 100 L366 132 Z" fill="#00B4D8"/><rect x="310" y="152" width="24" height="40" fill="#0B1E36" opacity=".6"/></g>
+<path d="M240 210 q40 -20 80 -20" fill="none" stroke="#00F5FF" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+<g stroke="#00F5FF" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"><path d="M312 186 l14 6 -14 6" transform="translate(6,16)"/></g>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Manglar denso y saludable">
+<defs>
+  <linearGradient id="skyA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d2b4a"/><stop offset="1" stop-color="#12496b"/></linearGradient>
+  <linearGradient id="waterA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a5f7a"/><stop offset="1" stop-color="#062f45"/></linearGradient>
+  <g id="mangA">
+    <path d="M0 0 L0 -60 M0 -60 l-22 -26 M0 -60 l20 -30 M0 -45 l-16 -14 M0 -50 l15 -12" stroke="#5b4630" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M0 0 l-16 22 M0 0 l16 22 M0 0 l-28 22 M0 0 l28 22 M0 0 l-6 24 M0 0 l7 24" stroke="#4a3826" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <ellipse cx="-14" cy="-84" rx="34" ry="24" fill="#1f8a5c"/>
+    <ellipse cx="18" cy="-96" rx="30" ry="22" fill="#27a56d"/>
+    <ellipse cx="0" cy="-70" rx="40" ry="22" fill="#1a7a52"/>
+    <ellipse cx="-30" cy="-66" rx="24" ry="16" fill="#2ab377" opacity=".85"/>
+  </g>
+</defs>
+<rect width="800" height="450" fill="url(#skyA)"/>
+<circle cx="660" cy="90" r="120" fill="#2ab377" opacity=".07"/>
+<rect y="300" width="800" height="150" fill="url(#waterA)"/>
+<g>
+  <use href="#mangA" x="90" y="330" transform="translate(90,330) scale(1.15) translate(-90,-330)"/>
+  <use href="#mangA" x="230" y="322"/>
+  <use href="#mangA" x="370" y="336" transform="translate(370,336) scale(1.25) translate(-370,-336)"/>
+  <use href="#mangA" x="520" y="324"/>
+  <use href="#mangA" x="650" y="334" transform="translate(650,334) scale(1.1) translate(-650,-334)"/>
+  <use href="#mangA" x="760" y="326"/>
+  <use href="#mangA" x="160" y="352" transform="translate(160,352) scale(.8) translate(-160,-352)" opacity=".9"/>
+  <use href="#mangA" x="450" y="356" transform="translate(450,356) scale(.75) translate(-450,-356)" opacity=".9"/>
+  <use href="#mangA" x="590" y="358" transform="translate(590,358) scale(.7) translate(-590,-358)" opacity=".85"/>
+</g>
+<path d="M-200 300 q50 -9 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 v160 H-200 Z" fill="#0a5f7a" opacity=".45">
+  <animateTransform attributeName="transform" type="translate" values="0 0;200 0" dur="12s" repeatCount="indefinite"/>
+</path>
+<path d="M-200 300 q50 -9 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0" fill="none" stroke="#7bf1c0" stroke-width="1.8" opacity=".45">
+  <animateTransform attributeName="transform" type="translate" values="0 0;200 0" dur="12s" repeatCount="indefinite"/>
+</path>
+</svg>

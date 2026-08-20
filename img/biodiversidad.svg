@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Pérdida de biodiversidad en el manglar">
+<defs><radialGradient id="bdG" cx=".5" cy=".55"><stop offset="0" stop-color="#27a56d" stop-opacity=".26"/><stop offset="1" stop-color="#27a56d" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="140" rx="180" ry="112" fill="url(#bdG)"/>
+<g stroke="#5b4630" stroke-width="4.5" fill="none" stroke-linecap="round">
+  <path d="M92 196 v-46 M92 150 l-16-18 M92 160 l15-14"/>
+  <path d="M92 196 l-16 20 M92 196 l16 20 M92 196 l-27 20 M92 196 l27 20"/>
+  <path d="M186 196 v-40 M186 156 l-14-16"/>
+  <path d="M186 196 l-14 20 M186 196 l14 20"/>
+</g>
+<ellipse cx="80" cy="126" rx="28" ry="19" fill="#1f8a5c"/><ellipse cx="108" cy="116" rx="24" ry="17" fill="#27a56d"/><ellipse cx="92" cy="138" rx="31" ry="15" fill="#2ab377" opacity=".9"/>
+<ellipse cx="186" cy="140" rx="26" ry="15" fill="#6f8259" opacity=".7"/>
+<g stroke="#7a6a58" stroke-width="4.5" stroke-linecap="round" opacity=".85"><path d="M262 196 v-26 M262 180 l-12-12"/><path d="M312 196 v-20"/><path d="M352 196 v-30 M352 178 l11-11"/></g>
+<path d="M0 200 q50 -10 100 0 t100 0 t100 0 t100 0 t100 0 v60 H0 Z" fill="#00B4D8" opacity=".3">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="10s" repeatCount="indefinite"/>
+</path>
+<g fill="none" stroke="#FF6B6B" stroke-width="2.4" stroke-linecap="round" opacity=".9">
+  <path d="M232 100 h120"><animate attributeName="opacity" values=".3;.95;.3" dur="3.4s" repeatCount="indefinite"/></path>
+  <path d="M244 88 l-12 12 12 12"><animate attributeName="opacity" values=".3;.95;.3" dur="3.4s" repeatCount="indefinite"/></path>
+</g>
+</svg>

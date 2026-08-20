@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Impacto económico sobre la costa turística">
+<defs><radialGradient id="ecG" cx=".5" cy=".5"><stop offset="0" stop-color="#00B4D8" stop-opacity=".22"/><stop offset="1" stop-color="#00B4D8" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="180" ry="115" fill="url(#ecG)"/>
+<rect x="40" y="86" width="86" height="118" rx="4" fill="#14415f"/>
+<g fill="#00F5FF" opacity=".28"><rect x="52" y="100" width="16" height="18"/><rect x="76" y="100" width="16" height="18"/><rect x="100" y="100" width="16" height="18"/><rect x="52" y="128" width="16" height="18"/><rect x="76" y="128" width="16" height="18"/><rect x="100" y="128" width="16" height="18"/><rect x="52" y="156" width="16" height="18"/><rect x="76" y="156" width="16" height="18"/></g>
+<path d="M34 86 h98 l-10 -16 h-78 Z" fill="#00B4D8" opacity=".8"/>
+<g stroke="#c99f68" stroke-width="5" stroke-linecap="round"><path d="M168 204 v-52"/></g>
+<path d="M168 152 q-34 -6 -46 12 q28 -6 46 4 Z" fill="#1f8a5c"/>
+<path d="M168 152 q34 -6 46 12 q-28 -6 -46 4 Z" fill="#27a56d"/>
+<path d="M168 150 q-8 -30 8 -42 q-2 26 6 44 Z" fill="#2ab377"/>
+<g fill="none" stroke="#FF6B6B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M244 96 l30 34 24 -20 40 52"/>
+  <path d="M338 148 l0 14 -14 0" />
+</g>
+<g fill="#FF6B6B" opacity=".18"><path d="M244 96 l30 34 24 -20 40 52 v14 h-94 Z"/></g>
+<path d="M0 210 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0 v60 H0 Z" fill="#00B4D8" opacity=".32">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="9.5s" repeatCount="indefinite"/>
+</path>
+<path d="M0 210 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0" fill="none" stroke="#00F5FF" stroke-width="1.6" opacity=".65">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="9.5s" repeatCount="indefinite"/>
+</path>
+</svg>

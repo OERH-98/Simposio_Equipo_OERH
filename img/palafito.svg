@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-label="Vivienda palafito sobre pilotes de madera">
+<defs>
+  <linearGradient id="pfW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00F5FF" stop-opacity=".3"/><stop offset="1" stop-color="#062f45" stop-opacity=".55"/></linearGradient>
+  <radialGradient id="pfG" cx=".5" cy=".35"><stop offset="0" stop-color="#c99f68" stop-opacity=".16"/><stop offset="1" stop-color="#c99f68" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="200" cy="110" rx="180" ry="105" fill="url(#pfG)"/>
+<g stroke="#8a6f4e" stroke-width="7" stroke-linecap="round"><path d="M126 200 V116 M166 204 V116 M236 204 V116 M276 200 V116"/></g>
+<path d="M108 88 h188 v30 h-188 Z" fill="#a98457"/>
+<path d="M98 88 L202 40 L306 88 Z" fill="#c99f68"/>
+<path d="M98 88 L202 40 L306 88 Z" fill="none" stroke="#e0bd8c" stroke-width="1.4" opacity=".5"/>
+<rect x="142" y="94" width="20" height="20" rx="2" fill="#0B1E36" opacity=".7"/>
+<rect x="238" y="94" width="20" height="20" rx="2" fill="#0B1E36" opacity=".7"/>
+<rect x="188" y="94" width="24" height="24" rx="2" fill="#00F5FF" opacity=".25"/>
+<path d="M296 118 l36 44" stroke="#8a6f4e" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M106 118 h-34" stroke="#8a6f4e" stroke-width="4.5" stroke-linecap="round"/>
+<g stroke="#8a6f4e" stroke-width="3" opacity=".8"><path d="M106 106 h-40 M296 106 h6"/></g>
+<path d="M0 168 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0 v90 H0 Z" fill="url(#pfW)">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="10s" repeatCount="indefinite"/>
+</path>
+<path d="M0 168 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0" fill="none" stroke="#00F5FF" stroke-width="1.8" opacity=".7">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="10s" repeatCount="indefinite"/>
+</path>
+<path d="M0 186 q50 -10 100 0 t100 0 t100 0 t100 0 t100 0 v70 H0 Z" fill="#00B4D8" opacity=".25">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="7s" repeatCount="indefinite"/>
+</path>
+</svg>

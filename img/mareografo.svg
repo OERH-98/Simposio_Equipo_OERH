@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Estación mareográfica en la costa">
+<defs><radialGradient id="mrG" cx=".5" cy=".5"><stop offset="0" stop-color="#00B4D8" stop-opacity=".24"/><stop offset="1" stop-color="#00B4D8" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="130" rx="180" ry="118" fill="url(#mrG)"/>
+<rect x="60" y="196" width="290" height="52" fill="#0a2136" opacity=".7"/>
+<g stroke="#8a99a8" stroke-width="7" stroke-linecap="round"><path d="M150 210 V96 M250 210 V96"/></g>
+<rect x="132" y="60" width="136" height="42" rx="6" fill="#16466a" stroke="#00B4D8" stroke-width="1.6"/>
+<g stroke="#00F5FF" stroke-width="2" fill="none" stroke-linecap="round"><path d="M146 86 l14-16 12 12 14-22 12 20 14-12 12 18 14-24 12 24"/></g>
+<circle cx="200" cy="46" r="5" fill="#FF6B6B"><animate attributeName="opacity" values="1;.2;1" dur="1.8s" repeatCount="indefinite"/></circle>
+<path d="M200 52 v8" stroke="#8a99a8" stroke-width="3"/>
+<g stroke="#00F5FF" stroke-width="1.6" opacity=".55" fill="none">
+  <path d="M170 118 h60 M170 138 h60 M170 158 h60 M170 178 h60"/>
+</g>
+<rect x="190" y="106" width="20" height="104" fill="#0e3454" opacity=".85"/>
+<path d="M0 168 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0 v100 H0 Z" fill="#00B4D8" opacity=".3">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="9s" repeatCount="indefinite"/>
+</path>
+<path d="M0 168 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0" fill="none" stroke="#00F5FF" stroke-width="1.8" opacity=".7">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="9s" repeatCount="indefinite"/>
+</path>
+</svg>

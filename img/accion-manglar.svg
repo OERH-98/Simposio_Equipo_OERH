@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Acción: restaurar manglares">
+<defs><radialGradient id="amG" cx=".5" cy=".55"><stop offset="0" stop-color="#2ab377" stop-opacity=".26"/><stop offset="1" stop-color="#2ab377" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="200" cy="140" rx="180" ry="112" fill="url(#amG)"/>
+<g stroke="#5b4630" stroke-width="5" fill="none" stroke-linecap="round">
+  <path d="M120 200 v-48 M120 154 l-17-18 M120 164 l16-16"/><path d="M120 200 l-17 22 M120 200 l17 22 M120 200 l-29 22 M120 200 l29 22"/>
+  <path d="M280 200 v-40 M280 162 l-14-15"/><path d="M280 200 l-14 20 M280 200 l14 20 M280 200 l-25 20 M280 200 l25 20"/>
+</g>
+<g><ellipse cx="104" cy="128" rx="30" ry="20" fill="#1f8a5c"/><ellipse cx="136" cy="118" rx="26" ry="18" fill="#27a56d"/><ellipse cx="120" cy="140" rx="34" ry="16" fill="#2ab377" opacity=".9"/></g>
+<g><ellipse cx="268" cy="140" rx="24" ry="16" fill="#1f8a5c"/><ellipse cx="292" cy="132" rx="20" ry="14" fill="#27a56d"/></g>
+<g stroke="#7bf1c0" stroke-width="4" fill="none" stroke-linecap="round">
+  <path d="M196 220 v-40"/>
+</g>
+<path d="M196 182 q-22 -4 -28 -26 q22 2 28 26 Z" fill="#2ab377"><animate attributeName="opacity" values=".5;1;.5" dur="4s" repeatCount="indefinite"/></path>
+<path d="M196 182 q22 -8 26 -32 q-22 6 -26 32 Z" fill="#27a56d"><animate attributeName="opacity" values="1;.5;1" dur="4s" repeatCount="indefinite"/></path>
+<circle cx="196" cy="150" r="34" fill="none" stroke="#7bf1c0" stroke-width="1.4" opacity=".5"><animate attributeName="r" values="26;46" dur="3.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".55;0" dur="3.6s" repeatCount="indefinite"/></circle>
+<path d="M0 218 q50 -10 100 0 t100 0 t100 0 t100 0 t100 0 v50 H0 Z" fill="#00B4D8" opacity=".3">
+  <animateTransform attributeName="transform" type="translate" values="0 0;-200 0" dur="10s" repeatCount="indefinite"/>
+</path>
+</svg>

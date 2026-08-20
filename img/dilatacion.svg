@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Dilatación térmica del agua">
+<defs>
+  <radialGradient id="dlG" cx=".5" cy=".5"><stop offset="0" stop-color="#FF6B6B" stop-opacity=".18"/><stop offset="1" stop-color="#FF6B6B" stop-opacity="0"/></radialGradient>
+  <linearGradient id="dlT" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FF6B6B"/><stop offset="1" stop-color="#00F5FF"/></linearGradient>
+</defs>
+<ellipse cx="200" cy="130" rx="180" ry="118" fill="url(#dlG)"/>
+<g transform="translate(96,0)">
+  <rect x="-14" y="40" width="28" height="130" rx="14" fill="#0e3454" stroke="#00B4D8" stroke-width="2"/>
+  <circle cx="0" cy="188" r="24" fill="#0e3454" stroke="#00B4D8" stroke-width="2"/>
+  <circle cx="0" cy="188" r="16" fill="#FF6B6B"/>
+  <rect x="-6" y="60" width="12" height="120" rx="6" fill="url(#dlT)">
+    <animate attributeName="y" values="120;56;120" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="60;124;60" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <g stroke="#D4E6F1" stroke-width="1.4" opacity=".4"><path d="M18 70 h12 M18 92 h12 M18 114 h12 M18 136 h12"/></g>
+</g>
+<g fill="none" stroke="#00F5FF" stroke-width="1.8">
+  <circle cx="240" cy="90" r="14" opacity=".8"><animate attributeName="r" values="12;18;12" dur="4s" repeatCount="indefinite"/></circle>
+  <circle cx="300" cy="128" r="14" opacity=".8"><animate attributeName="r" values="13;20;13" dur="4.6s" repeatCount="indefinite"/></circle>
+  <circle cx="250" cy="168" r="14" opacity=".8"><animate attributeName="r" values="12;19;12" dur="5.2s" repeatCount="indefinite"/></circle>
+  <circle cx="318" cy="192" r="12" opacity=".65"><animate attributeName="r" values="10;16;10" dur="4.2s" repeatCount="indefinite"/></circle>
+</g>
+<g fill="#00F5FF"><circle cx="240" cy="90" r="3.4"/><circle cx="300" cy="128" r="3.4"/><circle cx="250" cy="168" r="3.4"/><circle cx="318" cy="192" r="3"/></g>
+<g stroke="#FF6B6B" stroke-width="2.2" stroke-linecap="round" opacity=".85">
+  <path d="M264 62 q8 -12 0 -22 q-8 -12 0 -22"><animate attributeName="opacity" values=".3;.9;.3" dur="3s" repeatCount="indefinite"/></path>
+  <path d="M292 62 q8 -12 0 -22 q-8 -12 0 -22"><animate attributeName="opacity" values=".9;.3;.9" dur="3s" repeatCount="indefinite"/></path>
+</g>
+</svg>
