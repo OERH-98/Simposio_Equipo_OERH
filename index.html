@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aumento del nivel del mar — Causas, consecuencias y adaptaciones arquitectónicas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --abismo:#0B1E36;
+  --medianoche:#1A2F4C;
+  --espuma:#F0F8FF;
+  --bruma:#D4E6F1;
+  --turquesa:#00B4D8;
+  --cian:#00F5FF;
+  --coral:#FF6B6B;
+  --vidrio:rgba(212,230,241,.07);
+  --borde:rgba(0,180,216,.28);
+  --display:'Montserrat',system-ui,sans-serif;
+  --texto:'Inter',system-ui,sans-serif;
+  --dato:'JetBrains Mono',ui-monospace,monospace;
+  --rail:96px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--texto);
+  color:var(--espuma);
+  background:linear-gradient(160deg,var(--abismo) 0%,var(--medianoche) 55%,#0d2440 100%);
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--cian);color:var(--abismo)}
+
+/* ============ FONDO ============ */
+#ocean{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.glow{position:fixed;z-index:0;border-radius:50%;filter:blur(90px);opacity:.35;pointer-events:none}
+.glow.a{width:46vw;height:46vw;background:#0077a8;top:-14vw;right:-10vw}
+.glow.b{width:38vw;height:38vw;background:#00b4d8;bottom:-16vw;left:-12vw;opacity:.18}
+
+/* ============ CHROME ============ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:40;
+  display:flex;align-items:center;gap:18px;
+  padding:16px clamp(16px,3vw,34px);
+  background:linear-gradient(to bottom,rgba(11,30,54,.85),transparent);
+}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.brand svg{flex:none}
+.brand b{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+.brand span{display:block;font-size:11px;color:var(--bruma);opacity:.6;letter-spacing:.06em}
+.topbar .spacer{flex:1}
+.tool{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--borde);background:var(--vidrio);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  color:var(--bruma);font-family:var(--texto);font-size:12px;font-weight:500;
+  letter-spacing:.04em;padding:9px 14px;border-radius:999px;cursor:pointer;
+  transition:.25s;white-space:nowrap;
+}
+.tool:hover{color:var(--abismo);background:var(--cian);border-color:var(--cian)}
+.tool:focus-visible,.dot:focus-visible,.nav-btn:focus-visible,.vf:focus-visible,.tool-min:focus-visible{outline:2px solid var(--cian);outline-offset:3px}
+.tool-min{background:none;border:none;color:var(--bruma);cursor:pointer;padding:8px;border-radius:50%;line-height:0;transition:.2s}
+.tool-min:hover{color:var(--cian);background:rgba(0,245,255,.12)}
+.tool-min.off{opacity:.4}
+
+/* rail lateral */
+.rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);z-index:35;display:flex;flex-direction:column;justify-content:center;gap:6px;padding-left:22px;pointer-events:none}
+.dot{pointer-events:auto;display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;padding:3px 0}
+.dot i{display:block;width:22px;height:2px;background:rgba(212,230,241,.28);transition:.35s;flex:none}
+.dot em{font-family:var(--dato);font-size:10px;font-style:normal;color:var(--bruma);opacity:0;transform:translateX(-6px);transition:.3s;white-space:nowrap;letter-spacing:.05em}
+.dot:hover i,.dot:focus-visible i{background:var(--bruma)}
+.dot:hover em,.dot:focus-visible em{opacity:.75;transform:none}
+.dot.on i{width:42px;background:var(--cian);box-shadow:0 0 12px rgba(0,245,255,.8)}
+.dot.on em{opacity:1;transform:none;color:var(--cian)}
+
+/* barra inferior */
+.bottombar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;align-items:center;gap:14px;padding:14px clamp(16px,3vw,34px);background:linear-gradient(to top,rgba(11,30,54,.8),transparent)}
+.counter{font-family:var(--dato);font-size:12px;color:var(--bruma);letter-spacing:.1em}
+.counter b{color:var(--cian);font-weight:700}
+.bottombar .spacer{flex:1}
+.nav-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--borde);background:var(--vidrio);backdrop-filter:blur(10px);color:var(--espuma);cursor:pointer;display:grid;place-items:center;transition:.25s}
+.nav-btn:hover:not(:disabled){background:var(--cian);color:var(--abismo);border-color:var(--cian);transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.25;cursor:not-allowed}
+.hint{font-size:11px;color:var(--bruma);opacity:.5;letter-spacing:.05em}
+
+/* ============ SLIDES ============ */
+#deck{position:relative;height:100dvh;width:100%;z-index:10}
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:96px clamp(20px,5vw,60px) 92px clamp(20px,5vw,calc(var(--rail) + 28px));
+  opacity:0;visibility:hidden;transform:translateY(34px);
+  transition:opacity .6s ease,transform .7s cubic-bezier(.16,.84,.44,1),visibility .6s;
+  overflow-y:auto;overscroll-behavior:contain;
+}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.prev{transform:translateY(-34px)}
+.wrap{width:100%;max-width:1180px;margin:0 auto}
+
+/* revelado escalonado */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,.84,.44,1)}
+.slide.on .rv{opacity:1;transform:none}
+.slide.on .rv:nth-child(1){transition-delay:.10s}
+.slide.on .rv:nth-child(2){transition-delay:.18s}
+.slide.on .rv:nth-child(3){transition-delay:.26s}
+.slide.on .rv:nth-child(4){transition-delay:.34s}
+.slide.on .rv:nth-child(5){transition-delay:.42s}
+.slide.on .rv:nth-child(6){transition-delay:.50s}
+.slide.on .rv:nth-child(7){transition-delay:.58s}
+
+/* tipografía */
+.eyebrow{font-family:var(--dato);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--cian);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.eyebrow::after{content:"";height:1px;flex:1;max-width:120px;background:linear-gradient(to right,var(--cian),transparent)}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(2.4rem,7.4vw,5.6rem);line-height:.95;letter-spacing:-.03em;text-wrap:balance}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,4.2vw,3.1rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:16px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:700;font-size:1.02rem;letter-spacing:.01em;margin-bottom:8px}
+.lead{font-size:clamp(1rem,1.7vw,1.28rem);line-height:1.55;color:var(--bruma);max-width:64ch;font-weight:300}
+p{line-height:1.6}
+.mark{color:var(--cian);font-weight:500}
+.warn{color:var(--coral);font-weight:500}
+.mono{font-family:var(--dato)}
+
+/* tarjetas de vidrio */
+.card{
+  background:var(--vidrio);border:1px solid rgba(212,230,241,.13);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-radius:16px;padding:22px;transition:.35s;position:relative;overflow:hidden;
+}
+.card:hover{border-color:var(--borde);transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,10,25,.45)}
+.card p{font-size:.9rem;color:var(--bruma);opacity:.85}
+.card .ic{color:var(--cian);margin-bottom:14px;line-height:0}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,54px);align-items:center}
+
+/* cifras */
+.stat{font-family:var(--display);font-weight:900;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1;letter-spacing:-.03em;color:var(--espuma)}
+.stat.c{color:var(--cian)}
+.stat.r{color:var(--coral)}
+.stat small{font-family:var(--dato);font-size:.9rem;font-weight:400;letter-spacing:.04em;color:var(--bruma);opacity:.7;display:block;margin-top:8px;text-transform:uppercase}
+
+/* portada */
+.hero-tag{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--borde);border-radius:999px;padding:7px 15px;font-family:var(--dato);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cian);margin-bottom:28px}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--coral);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,107,107,.6)}50%{opacity:.55;box-shadow:0 0 0 8px rgba(255,107,107,0)}}
+.hero-rule{height:1px;background:linear-gradient(to right,var(--cian),rgba(0,245,255,0));margin:30px 0;max-width:520px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px}
+.hero-meta div{border-left:2px solid var(--turquesa);padding-left:12px}
+.hero-meta b{display:block;font-family:var(--dato);font-size:.82rem;letter-spacing:.04em}
+.hero-meta span{font-size:11px;color:var(--bruma);opacity:.6;letter-spacing:.1em;text-transform:uppercase}
+
+/* listas */
+.bullets{list-style:none;display:flex;flex-direction:column;gap:13px}
+.bullets li{display:flex;gap:13px;align-items:flex-start;font-size:.96rem;color:var(--bruma);line-height:1.5}
+.bullets li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--turquesa);margin-top:8px;flex:none;box-shadow:0 0 10px rgba(0,180,216,.8)}
+.bullets li.alert::before{background:var(--coral);box-shadow:0 0 10px rgba(255,107,107,.8)}
+
+/* línea de tiempo */
+.tl{display:flex;gap:8px;margin-top:10px}
+.tl-node{flex:1;position:relative;padding-top:34px;opacity:0;transform:translateY(16px);transition:.6s}
+.slide.on .tl-node{opacity:1;transform:none}
+.slide.on .tl-node:nth-child(1){transition-delay:.35s}
+.slide.on .tl-node:nth-child(2){transition-delay:.5s}
+.slide.on .tl-node:nth-child(3){transition-delay:.65s}
+.slide.on .tl-node:nth-child(4){transition-delay:.8s}
+.tl-node::before{content:"";position:absolute;top:9px;left:0;right:0;height:2px;background:rgba(212,230,241,.18)}
+.tl-node::after{content:"";position:absolute;top:4px;left:0;width:12px;height:12px;border-radius:50%;background:var(--abismo);border:2px solid var(--turquesa)}
+.tl-node.hot::after{background:var(--coral);border-color:var(--coral);box-shadow:0 0 16px rgba(255,107,107,.9)}
+.tl-node b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(1.2rem,2.6vw,1.9rem);letter-spacing:-.02em}
+.tl-node.hot b{color:var(--coral)}
+.tl-node span{font-family:var(--dato);font-size:11px;color:var(--bruma);opacity:.65;letter-spacing:.06em}
+.tl-node em{display:block;font-style:normal;font-size:.82rem;color:var(--bruma);opacity:.8;margin-top:6px;line-height:1.4}
+
+/* gráficos */
+.chartbox{position:relative;height:min(46vh,340px);width:100%}
+
+/* comparador manglares */
+.compare{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--borde);cursor:ew-resize;background:#07182c;user-select:none;touch-action:none}
+.compare .layer{position:absolute;inset:0}
+.compare .layer svg{width:100%;height:100%;display:block}
+.compare .after{clip-path:inset(0 0 0 50%)}
+.cmp-bar{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--cian);box-shadow:0 0 14px rgba(0,245,255,.9);transform:translateX(-1px)}
+.cmp-bar::after{content:"⇔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:var(--cian);color:var(--abismo);display:grid;place-items:center;font-size:16px;font-weight:700}
+.cmp-tag{position:absolute;top:14px;font-family:var(--dato);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:rgba(11,30,54,.72);padding:6px 11px;border-radius:999px;backdrop-filter:blur(6px)}
+.cmp-tag.l{left:14px;color:#7bf1c0}
+.cmp-tag.r{right:14px;color:var(--coral)}
+.cmp-range{position:absolute;inset:0;opacity:0;cursor:ew-resize;width:100%;margin:0}
+
+/* estrategias */
+.strat{border-top:2px solid rgba(212,230,241,.15);padding-top:18px;transition:.35s;cursor:default}
+.strat:hover{border-top-color:var(--cian)}
+.strat .num{font-family:var(--dato);font-size:11px;color:var(--turquesa);letter-spacing:.2em;margin-bottom:10px;display:block}
+
+/* arquitectura */
+.arch{border-radius:16px;overflow:hidden;border:1px solid rgba(212,230,241,.13);background:var(--vidrio);backdrop-filter:blur(14px)}
+.arch svg{width:100%;height:auto;display:block;background:linear-gradient(to bottom,rgba(0,60,100,.35),rgba(0,20,45,.5))}
+.arch .body{padding:20px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.chip{font-family:var(--dato);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--borde);color:var(--cian);padding:4px 10px;border-radius:999px}
+
+/* quiz */
+.q{border-left:2px solid rgba(212,230,241,.18);padding:2px 0 2px 18px;margin-bottom:18px;transition:.3s}
+.q.ok{border-left-color:#4ade80}
+.q.no{border-left-color:var(--coral)}
+.q p{font-size:.98rem;margin-bottom:11px;line-height:1.45}
+.q .btns{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.vf{font-family:var(--dato);font-size:11px;letter-spacing:.14em;border:1px solid var(--borde);background:none;color:var(--bruma);padding:7px 17px;border-radius:999px;cursor:pointer;transition:.22s}
+.vf:hover:not(:disabled){background:var(--cian);color:var(--abismo);border-color:var(--cian)}
+.vf:disabled{cursor:default;opacity:.35}
+.vf.pick-ok{background:#4ade80;border-color:#4ade80;color:#052e16;opacity:1}
+.vf.pick-no{background:var(--coral);border-color:var(--coral);color:#2b0505;opacity:1}
+.fb{font-size:.83rem;color:var(--bruma);opacity:0;max-height:0;overflow:hidden;transition:.4s;line-height:1.45}
+.q.done .fb{opacity:.85;max-height:120px;margin-top:9px}
+.score{font-family:var(--dato);font-size:.9rem;color:var(--cian);letter-spacing:.06em}
+
+/* referencias */
+.ref{display:flex;gap:14px;align-items:flex-start;padding:15px 16px;border:1px solid rgba(212,230,241,.12);border-radius:12px;text-decoration:none;color:inherit;transition:.28s;background:var(--vidrio)}
+.ref:hover{border-color:var(--cian);transform:translateX(5px);background:rgba(0,180,216,.09)}
+.ref .n{font-family:var(--dato);font-size:11px;color:var(--turquesa);padding-top:3px}
+.ref b{display:block;font-family:var(--texto);font-weight:500;font-size:.92rem;margin-bottom:4px}
+.ref span{font-family:var(--dato);font-size:10.5px;color:var(--bruma);opacity:.55;word-break:break-all;line-height:1.4}
+
+.quote{border-left:2px solid var(--turquesa);padding-left:18px;font-size:.92rem;color:var(--bruma);font-style:italic;line-height:1.55;opacity:.9}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr;gap:26px}
+  .rail{display:none}
+  .slide{padding:88px 20px 92px}
+  .tl{flex-direction:column;gap:16px}
+  .tl-node::before{display:none}
+  .tl-node{padding-top:0;padding-left:26px}
+  .tl-node::after{top:6px;left:0}
+  .hint{display:none}
+}
+@media (max-width:620px){
+  .g2{grid-template-columns:1fr}
+  .brand span{display:none}
+  .tool.hide-s{display:none}
+  .slide{justify-content:flex-start;padding-top:92px}
+  .compare{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ============ IMPRESIÓN / PDF ============ */
+@media print{
+  @page{size:A4 landscape;margin:12mm}
+  html,body{overflow:visible;background:#fff}
+  body{color:#0B1E36;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #ocean,.glow,.topbar,.rail,.bottombar,.cmp-bar,.cmp-range{display:none!important}
+  #deck{height:auto}
+  .slide{position:static;opacity:1!important;visibility:visible!important;transform:none!important;height:auto;min-height:auto;page-break-after:always;padding:0 0 18mm;display:block;overflow:visible}
+  .rv,.tl-node{opacity:1!important;transform:none!important}
+  h1,h2,h3,.stat,.brand b{color:#0B1E36}
+  .lead,p,.bullets li,.card p,.tl-node em,.ref span{color:#2c4a68}
+  .card,.ref,.arch{background:#f2f7fb;border-color:#c9dced;backdrop-filter:none}
+  .mark,.eyebrow,.stat.c,.ref .n,.chip,.score{color:#0077a8}
+  .stat.r,.warn{color:#c0392b}
+  .compare .after{clip-path:inset(0 0 0 50%)}
+}
+</style>
+</head>
+<body>
+
+<canvas id="ocean"></canvas>
+<div class="glow a"></div>
+<div class="glow b"></div>
+
+<!-- ================= TOP ================= -->
+<header class="topbar">
+  <div class="brand">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00F5FF" stroke-width="1.6" stroke-linecap="round">
+      <path d="M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>
+      <path d="M2 20c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2" opacity=".55"/>
+      <path d="M12 3v7M12 3 9.5 5.5M12 3l2.5 2.5"/>
+    </svg>
+    <div>
+      <b>Nivel del mar</b>
+      <span>Simposio científico interactivo</span>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <button class="tool hide-s" id="btnResumen">Descargar resumen</button>
+  <button class="tool" id="btnPdf">Exportar como PDF</button>
+  <button class="tool-min off" id="btnSonido" title="Activar sonido" aria-label="Activar sonido">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>
+  </button>
+</header>
+
+<!-- ================= RAIL ================= -->
+<nav class="rail" id="rail" aria-label="Secciones"></nav>
+
+<!-- ================= DECK ================= -->
+<main id="deck">
+
+  <!-- 1 · PORTADA -->
+  <section class="slide" data-nav="Portada">
+    <div class="wrap">
+      <div class="rv"><span class="hero-tag"><span class="pulse"></span> Récord medido en 2024: 5.9 mm/año</span></div>
+      <h1 class="rv">AUMENTO DEL<br>NIVEL DEL MAR</h1>
+      <div class="hero-rule rv"></div>
+      <p class="lead rv">Causas, consecuencias y adaptaciones arquitectónicas.<br>Un recorrido desde la física del océano hasta las casas que aprenden a flotar.</p>
+      <div class="hero-meta rv">
+        <div><b>Ecosistemas marino-costeros</b><span>Tema general</span></div>
+        <div><b>Manglares y vivienda costera</b><span>Enfoque</span></div>
+        <div><b>El Salvador · Bahía de Jiquilisco</b><span>Caso de estudio</span></div>
+      </div>
+      <p class="hint rv" style="margin-top:34px">Usa las flechas ← → o desplaza para navegar</p>
+    </div>
+  </section>
+
+  <!-- 2 · DELIMITACIÓN + OBJETIVOS -->
+  <section class="slide" data-nav="Tema">
+    <div class="wrap">
+      <div class="eyebrow rv">01 · Delimitación del tema</div>
+      <h2 class="rv">De un océano entero<br>a una casa sobre pilotes</h2>
+      <div class="grid g3 rv" style="margin-top:26px">
+        <div class="card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg></div>
+          <h3>Tema general</h3>
+          <p>Ecosistemas marino-costeros y el aumento del nivel del mar.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M12 20V9M8 20V13M16 20V13M12 9 6 5M12 9l6-4"/></svg></div>
+          <h3>Tema específico</h3>
+          <p>El fenómeno físico, sus causas, su efecto sobre la biodiversidad —en especial los manglares— y las respuestas arquitectónicas: palafitos y casas flotantes.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8"/></svg></div>
+          <h3>Objetivos</h3>
+          <p>Explicar el mecanismo, dimensionar el impacto con datos medidos y evaluar dos vías de adaptación construidas.</p>
+        </div>
+      </div>
+      <p class="quote rv" style="margin-top:28px">La escala del problema es planetaria; la escala de la respuesta empieza en el terreno donde alguien decide a qué altura levanta el piso de su casa.</p>
+    </div>
+  </section>
+
+  <!-- 3 · PROBLEMÁTICA -->
+  <section class="slide" data-nav="Problema">
+    <div class="wrap">
+      <div class="eyebrow rv">02 · Planteamiento de la problemática</div>
+      <div class="split">
+        <div class="rv">
+          <h2>El agua avanza<br>más rápido que<br>la adaptación</h2>
+          <p class="lead">El aumento acelerado del nivel del mar, producto del cambio climático antropogénico, degrada los manglares, desplaza especies y obliga a las comunidades costeras a adaptarse o abandonar su territorio.</p>
+        </div>
+        <div class="rv">
+          <h3 style="margin-bottom:16px;color:var(--cian);font-family:var(--dato);font-size:11px;letter-spacing:.2em;text-transform:uppercase">Variables involucradas</h3>
+          <ul class="bullets">
+            <li>Calentamiento global: dilatación térmica del agua y derretimiento de la criósfera.</li>
+            <li>Vulnerabilidad del manglar frente a cambios de salinidad y oleaje.</li>
+            <li class="alert">Vulnerabilidad social, económica y migratoria de las comunidades.</li>
+            <li class="alert">Debilidad institucional en la aplicación de la normativa ambiental.</li>
+            <li>Alternativas arquitectónicas: palafitos y casas flotantes.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · MEDICIÓN -->
+  <section class="slide" data-nav="Medición">
+    <div class="wrap">
+      <div class="eyebrow rv">03 · Base científica</div>
+      <h2 class="rv">¿Qué es el nivel del mar<br>y cómo se mide?</h2>
+      <p class="lead rv" style="margin-top:8px">Es la altura media de la superficie del océano respecto a una referencia fija. No es una línea quieta: se promedia sobre mareas, oleaje y estaciones para revelar la tendencia de fondo.</p>
+      <div class="grid g2 rv" style="margin-top:28px">
+        <div class="card">
+          <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 3v13M6 16c2 0 2 2 4 2s2-2 4-2 2 2 4 2"/><path d="M3 6h6M3 10h6M3 14h6"/></svg></div>
+          <h3>Mareógrafos</h3>
+          <p>Estaciones costeras que registran la altura del agua de forma continua. Aportan las series históricas más largas: el registro instrumental que permite hablar del siglo XX.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v6M9 5l3-3 3 3"/><rect x="7" y="8" width="10" height="7" rx="2"/><path d="M12 15v3M7 21c2-2 8-2 10 0"/></svg></div>
+          <h3>Altimetría satelital</h3>
+          <p>Radares en órbita miden la distancia hasta la superficie del océano y cubren el planeta completo, incluido el mar abierto donde no hay costa ni instrumentos.</p>
+        </div>
+      </div>
+      <p class="quote rv" style="margin-top:24px">Dos métodos independientes, una misma señal: la superficie del océano está subiendo.</p>
+    </div>
+  </section>
+
+  <!-- 5 · CAUSAS -->
+  <section class="slide" data-nav="Causas">
+    <div class="wrap">
+      <div class="eyebrow rv">04 · Causas físicas</div>
+      <h2 class="rv">Dos mecanismos,<br>un mismo resultado</h2>
+      <div class="grid g2 rv" style="margin-top:28px">
+        <div class="card">
+          <div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="9" y="2" width="6" height="13" rx="3"/><circle cx="12" cy="18" r="4"/><path d="M12 8v6"/></svg></div>
+          <h3>Dilatación térmica</h3>
+          <p>El océano absorbe la mayor parte del calor extra retenido por la atmósfera. Al calentarse, el agua se expande y ocupa más volumen: el mar sube sin que se añada una sola gota nueva.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 17h18M6 17l4-8 3 5 2-3 3 6"/><path d="M8 20c1.5 0 1.5 1.5 3 1.5s1.5-1.5 3-1.5"/></svg></div>
+          <h3>Derretimiento de hielo continental</h3>
+          <p>Glaciares de montaña y capas polares transfieren agua que estaba almacenada en tierra firme hacia el océano. Este aporte añade masa y gana peso frente a la dilatación.</p>
+        </div>
+      </div>
+      <div class="grid g3 rv" style="margin-top:22px">
+        <div class="card"><div class="stat c">+</div><p style="margin-top:10px">Agua más caliente = mayor volumen.</p></div>
+        <div class="card"><div class="stat c">+</div><p style="margin-top:10px">Hielo terrestre fundido = más masa oceánica.</p></div>
+        <div class="card" style="border-color:rgba(255,107,107,.35)"><div class="stat r">=</div><p style="margin-top:10px">Ascenso acelerado y sostenido del nivel medio global.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · DATOS -->
+  <section class="slide" data-nav="Datos">
+    <div class="wrap">
+      <div class="eyebrow rv">05 · Datos históricos</div>
+      <h2 class="rv">La aceleración medida</h2>
+      <div class="tl" style="margin-top:26px">
+        <div class="tl-node"><span>SIGLO XX</span><b>1.5 mm</b><em>por año, ritmo promedio del registro histórico.</em></div>
+        <div class="tl-node"><span>ÚLTIMA DÉCADA</span><b>3.9 mm</b><em>por año: más del doble del promedio del siglo XX.</em></div>
+        <div class="tl-node hot"><span>2024</span><b>5.9 mm</b><em>por año. La cifra más alta registrada.</em></div>
+        <div class="tl-node"><span>TENDENCIA</span><b>×3.9</b><em>El ritmo actual casi cuadruplica el del siglo pasado.</em></div>
+      </div>
+      <div class="card rv" style="margin-top:26px">
+        <h3 style="margin-bottom:14px">Ritmo de ascenso (mm por año)</h3>
+        <div class="chartbox"><canvas id="chartRitmo"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · PROYECCIONES -->
+  <section class="slide" data-nav="Proyecciones">
+    <div class="wrap">
+      <div class="eyebrow rv">06 · Proyecciones</div>
+      <h2 class="rv">Lo que viene<br>no es una sola cifra</h2>
+      <p class="lead rv">Las proyecciones se expresan en rangos porque dependen de las emisiones futuras y de la respuesta de las capas de hielo.</p>
+      <div class="split rv" style="margin-top:26px">
+        <div class="card">
+          <div class="chartbox" style="height:min(40vh,300px)"><canvas id="chartProy"></canvas></div>
+        </div>
+        <div>
+          <div class="grid" style="gap:14px">
+            <div class="card"><div class="stat">20–55 <small style="display:inline;font-size:.8rem">cm</small></div><small class="mono" style="display:block;margin-top:8px;color:var(--bruma);opacity:.7;font-size:.78rem;letter-spacing:.1em">HACIA 2050</small></div>
+            <div class="card"><div class="stat c">43–98 <small style="display:inline;font-size:.8rem">cm</small></div><small class="mono" style="display:block;margin-top:8px;color:var(--bruma);opacity:.7;font-size:.78rem;letter-spacing:.1em">HACIA 2100</small></div>
+            <div class="card" style="border-color:rgba(255,107,107,.35)"><div class="stat r">hasta 1.5 <small style="display:inline;font-size:.8rem">m</small></div><small class="mono" style="display:block;margin-top:8px;color:var(--bruma);opacity:.7;font-size:.78rem;letter-spacing:.1em">2100 · ESCENARIO ALTO</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · CONSECUENCIAS -->
+  <section class="slide" data-nav="Consecuencias">
+    <div class="wrap">
+      <div class="eyebrow rv">07 · Consecuencias globales</div>
+      <h2 class="rv">Tres frentes de impacto</h2>
+      <div class="grid g3 rv" style="margin-top:28px">
+        <div class="card">
+          <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 21V9M12 9c0-3 2-5 5-5 0 3-2 5-5 5zM12 12c0-3-2-5-5-5 0 3 2 5 5 5z"/><path d="M6 21h12"/></svg></div>
+          <h3>Biodiversidad</h3>
+          <div class="stat r" style="font-size:2.2rem;margin:10px 0">−60%</div>
+          <p>de manglares perdidos en El Salvador desde 1950. El cambio de salinidad y el oleaje comprometen su regeneración.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="7" r="3"/><path d="M3 21c0-4 3-6 6-6s6 2 6 6"/><path d="M16 8h6M19 5l3 3-3 3"/></svg></div>
+          <h3>Migración</h3>
+          <div class="stat r" style="font-size:2.2rem;margin:10px 0">216 M</div>
+          <p>de personas podrían desplazarse por causas climáticas hacia 2050.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 19h18M5 19V9l7-5 7 5v10"/><path d="M9 19v-5h6v5"/></svg></div>
+          <h3>Economía</h3>
+          <div class="stat c" style="font-size:2.2rem;margin:10px 0">Turismo</div>
+          <p>Playas, infraestructura hotelera y actividad costera quedan expuestas a erosión e inundación recurrente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · EL SALVADOR -->
+  <section class="slide" data-nav="El Salvador">
+    <div class="wrap">
+      <div class="eyebrow rv">08 · Caso El Salvador</div>
+      <div class="split">
+        <div class="rv">
+          <h2>Bahía de Jiquilisco:<br>un sitio Ramsar<br>en primera línea</h2>
+          <p class="lead">El humedal cuenta con protección internacional, pero la presión sobre la costa avanza más rápido que su capacidad de recuperación.</p>
+          <ul class="bullets" style="margin-top:22px">
+            <li class="alert"><b class="warn">70%</b>&nbsp;de la costa entre La Libertad y Salinas presenta vulnerabilidad costera de moderada a alta.</li>
+            <li>Monocultivos y agroquímicos han degradado el entorno del manglar durante décadas.</li>
+            <li class="alert">Existe una brecha entre la protección formal en el papel y la capacidad institucional real de aplicarla.</li>
+          </ul>
+        </div>
+        <div class="rv">
+          <div class="grid g2" style="gap:14px">
+            <div class="card"><div class="stat r">70%</div><small class="mono" style="display:block;margin-top:10px;color:var(--bruma);opacity:.7;font-size:.75rem;letter-spacing:.08em">COSTA CON VULNERABILIDAD MODERADA–ALTA</small></div>
+            <div class="card"><div class="stat r">−60%</div><small class="mono" style="display:block;margin-top:10px;color:var(--bruma);opacity:.7;font-size:.75rem;letter-spacing:.08em">MANGLAR PERDIDO DESDE 1950</small></div>
+            <div class="card" style="grid-column:1/-1"><div class="stat c" style="font-size:1.6rem">Sitio Ramsar</div><small class="mono" style="display:block;margin-top:10px;color:var(--bruma);opacity:.7;font-size:.75rem;letter-spacing:.08em">BAHÍA DE JIQUILISCO · HUMEDAL DE IMPORTANCIA INTERNACIONAL</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · COMPARADOR MANGLARES -->
+  <section class="slide" data-nav="Manglares">
+    <div class="wrap">
+      <div class="eyebrow rv">09 · Comparador visual</div>
+      <h2 class="rv">Arrastra para ver la pérdida</h2>
+      <p class="lead rv" style="margin-bottom:20px">Manglar denso frente a manglar degradado: raíces que ya no frenan el oleaje, suelo que deja de retener sedimento.</p>
+      <div class="compare rv" id="compare">
+        <div class="layer before">
+          <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" aria-label="Manglar denso y saludable">
+            <defs>
+              <linearGradient id="skyA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d2b4a"/><stop offset="1" stop-color="#12496b"/></linearGradient>
+              <linearGradient id="waterA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a5f7a"/><stop offset="1" stop-color="#062f45"/></linearGradient>
+              <g id="mangA">
+                <path d="M0 0 L0 -60 M0 -60 l-22 -26 M0 -60 l20 -30 M0 -45 l-16 -14 M0 -50 l15 -12" stroke="#5b4630" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <path d="M0 0 l-16 22 M0 0 l16 22 M0 0 l-28 22 M0 0 l28 22 M0 0 l-6 24 M0 0 l7 24" stroke="#4a3826" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <ellipse cx="-14" cy="-84" rx="34" ry="24" fill="#1f8a5c"/>
+                <ellipse cx="18" cy="-96" rx="30" ry="22" fill="#27a56d"/>
+                <ellipse cx="0" cy="-70" rx="40" ry="22" fill="#1a7a52"/>
+                <ellipse cx="-30" cy="-66" rx="24" ry="16" fill="#2ab377" opacity=".85"/>
+              </g>
+            </defs>
+            <rect width="800" height="450" fill="url(#skyA)"/>
+            <rect y="300" width="800" height="150" fill="url(#waterA)"/>
+            <path d="M0 300 q40 -8 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" stroke="#7bf1c0" stroke-width="1.5" fill="none" opacity=".35"/>
+            <use href="#mangA" x="90" y="330" transform="translate(90,330) scale(1.15) translate(-90,-330)"/>
+            <use href="#mangA" x="230" y="322"/>
+            <use href="#mangA" x="370" y="336" transform="translate(370,336) scale(1.25) translate(-370,-336)"/>
+            <use href="#mangA" x="520" y="324"/>
+            <use href="#mangA" x="650" y="334" transform="translate(650,334) scale(1.1) translate(-650,-334)"/>
+            <use href="#mangA" x="760" y="326"/>
+            <use href="#mangA" x="160" y="352" transform="translate(160,352) scale(.8) translate(-160,-352)" opacity=".9"/>
+            <use href="#mangA" x="450" y="356" transform="translate(450,356) scale(.75) translate(-450,-356)" opacity=".9"/>
+            <use href="#mangA" x="590" y="358" transform="translate(590,358) scale(.7) translate(-590,-358)" opacity=".85"/>
+          </svg>
+        </div>
+        <div class="layer after" id="cmpAfter">
+          <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" aria-label="Manglar degradado con troncos secos y mayor lámina de agua">
+            <defs>
+              <linearGradient id="skyB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#251f2e"/><stop offset="1" stop-color="#3b3340"/></linearGradient>
+              <linearGradient id="waterB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4a52"/><stop offset="1" stop-color="#20232c"/></linearGradient>
+              <g id="mangB">
+                <path d="M0 0 L0 -52 M0 -52 l-18 -20 M0 -52 l16 -22" stroke="#6b5b4a" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <path d="M0 0 l-14 18 M0 0 l14 18" stroke="#5a4c3d" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <ellipse cx="0" cy="-62" rx="24" ry="13" fill="#6f8259" opacity=".75"/>
+              </g>
+              <g id="stump">
+                <path d="M0 0 L0 -26 M0 -18 l-12 -12" stroke="#7a6a58" stroke-width="5" fill="none" stroke-linecap="round" opacity=".9"/>
+              </g>
+            </defs>
+            <rect width="800" height="450" fill="url(#skyB)"/>
+            <rect y="272" width="800" height="178" fill="url(#waterB)"/>
+            <path d="M0 272 q40 -6 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" stroke="#c8cdd6" stroke-width="1.5" fill="none" opacity=".28"/>
+            <use href="#mangB" x="180" y="318"/>
+            <use href="#mangB" x="560" y="326" transform="translate(560,326) scale(.9) translate(-560,-326)"/>
+            <use href="#stump" x="90" y="312"/>
+            <use href="#stump" x="300" y="322"/>
+            <use href="#stump" x="410" y="308"/>
+            <use href="#stump" x="470" y="330"/>
+            <use href="#stump" x="680" y="316"/>
+            <use href="#stump" x="740" y="328"/>
+          </svg>
+        </div>
+        <span class="cmp-tag l">Manglar denso</span>
+        <span class="cmp-tag r">Manglar degradado</span>
+        <div class="cmp-bar" id="cmpBar"></div>
+        <input class="cmp-range" id="cmpRange" type="range" min="0" max="100" value="50" aria-label="Comparar manglar denso y degradado">
+      </div>
+      <p class="hint rv" style="margin-top:14px">El manglar es infraestructura natural: sostiene el suelo y disipa la energía del oleaje antes de que llegue a la costa.</p>
+    </div>
+  </section>
+
+  <!-- 11 · MARCO LEGAL -->
+  <section class="slide" data-nav="Marco legal">
+    <div class="wrap">
+      <div class="eyebrow rv">10 · Marco normativo</div>
+      <h2 class="rv">Protección en el papel</h2>
+      <div class="grid g4 rv" style="margin-top:26px">
+        <div class="card"><h3>Ley de Medio Ambiente</h3><p class="mono" style="color:var(--cian);font-size:.8rem;margin:8px 0">Artículo 74</p><p>Marco nacional para la protección de los recursos naturales.</p></div>
+        <div class="card"><h3>Ley de Áreas Naturales Protegidas</h3><p>Régimen de conservación aplicable a los ecosistemas costeros.</p></div>
+        <div class="card"><h3>Convención Ramsar</h3><p>Reconocimiento internacional de humedales como la Bahía de Jiquilisco.</p></div>
+        <div class="card" style="border-color:rgba(255,107,107,.3)"><h3>NDC 2022</h3><p>Compromisos climáticos nacionales presentados ante el marco internacional.</p></div>
+      </div>
+      <p class="quote rv" style="margin-top:26px">La normativa existe. El punto crítico está en la brecha entre esa protección formal y la capacidad institucional para hacerla efectiva.</p>
+    </div>
+  </section>
+
+  <!-- 12 · ESTRATEGIAS -->
+  <section class="slide" data-nav="Estrategias">
+    <div class="wrap">
+      <div class="eyebrow rv">11 · Estrategias de adaptación</div>
+      <h2 class="rv">Retirarse, acomodarse<br>o protegerse</h2>
+      <div class="grid g3 rv" style="margin-top:30px">
+        <div class="strat">
+          <span class="num">OPCIÓN 01</span>
+          <h3 style="font-size:1.5rem;margin-bottom:10px">Retirarse</h3>
+          <p style="color:var(--bruma);font-size:.92rem">Reubicar población e infraestructura fuera de la zona de riesgo. Es la opción más definitiva y también la más costosa en términos sociales.</p>
+        </div>
+        <div class="strat">
+          <span class="num">OPCIÓN 02</span>
+          <h3 style="font-size:1.5rem;margin-bottom:10px">Acomodarse</h3>
+          <p style="color:var(--bruma);font-size:.92rem">Convivir con el agua: elevar las viviendas, modificar los usos del suelo y ajustar la forma de habitar la costa. Aquí entran los palafitos y las casas flotantes.</p>
+        </div>
+        <div class="strat">
+          <span class="num">OPCIÓN 03</span>
+          <h3 style="font-size:1.5rem;margin-bottom:10px">Protegerse</h3>
+          <p style="color:var(--bruma);font-size:.92rem">Construir defensas: diques y obras duras, o soluciones basadas en la naturaleza como la restauración del manglar, que amortigua el oleaje por sí mismo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 · ARQUITECTURA -->
+  <section class="slide" data-nav="Arquitectura">
+    <div class="wrap">
+      <div class="eyebrow rv">12 · Adaptación arquitectónica</div>
+      <h2 class="rv">Casas que se elevan,<br>casas que flotan</h2>
+      <div class="grid g2 rv" style="margin-top:24px">
+        <div class="arch">
+          <svg viewBox="0 0 400 200" aria-label="Vivienda palafito sobre pilotes de madera">
+            <path d="M0 150 h400" stroke="rgba(0,245,255,.25)" stroke-width="1"/>
+            <rect y="150" width="400" height="50" fill="rgba(0,180,216,.16)"/>
+            <path d="M0 150 q25 -6 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0" stroke="#00F5FF" stroke-width="1.4" fill="none" opacity=".5"/>
+            <g stroke="#8a6f4e" stroke-width="6" stroke-linecap="round">
+              <path d="M120 175V110M160 178V110M240 178V110M280 175V110"/>
+            </g>
+            <rect x="105" y="80" width="190" height="32" fill="#a98457" rx="2"/>
+            <path d="M95 80 L200 34 L305 80 Z" fill="#c99f68"/>
+            <rect x="150" y="88" width="18" height="18" fill="#0B1E36" opacity=".65"/>
+            <rect x="232" y="88" width="18" height="18" fill="#0B1E36" opacity=".65"/>
+            <path d="M300 112 l30 40" stroke="#8a6f4e" stroke-width="4" stroke-linecap="round"/>
+            <path d="M108 112 h-30" stroke="#8a6f4e" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <div class="body">
+            <h3 style="font-size:1.35rem">Palafitos</h3>
+            <p style="margin-top:8px">Viviendas levantadas sobre pilotes de madera. Una tradición milenaria en zonas inundables: el agua pasa por debajo en lugar de entrar.</p>
+            <div class="chips"><span class="chip">Tradición milenaria</span><span class="chip">Materiales locales</span><span class="chip">Bajo costo</span></div>
+          </div>
+        </div>
+        <div class="arch">
+          <svg viewBox="0 0 400 200" aria-label="Casa flotante sobre pontones">
+            <path d="M0 130 h400" stroke="rgba(0,245,255,.25)" stroke-width="1"/>
+            <rect y="130" width="400" height="70" fill="rgba(0,180,216,.16)"/>
+            <path d="M0 130 q25 -7 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0" stroke="#00F5FF" stroke-width="1.4" fill="none" opacity=".5"/>
+            <rect x="110" y="118" width="180" height="20" rx="8" fill="#5c6b78"/>
+            <rect x="120" y="70" width="160" height="48" fill="#e6eef5" rx="3"/>
+            <path d="M112 70 h176 l-10 -22 h-156 Z" fill="#00B4D8"/>
+            <rect x="136" y="82" width="30" height="26" fill="#0B1E36" opacity=".55"/>
+            <rect x="182" y="82" width="30" height="26" fill="#0B1E36" opacity=".55"/>
+            <rect x="228" y="82" width="30" height="26" fill="#0B1E36" opacity=".55"/>
+            <path d="M290 128 v22 M110 128 v22" stroke="#5c6b78" stroke-width="3" stroke-dasharray="4 5"/>
+            <circle cx="290" cy="152" r="4" fill="#5c6b78"/><circle cx="110" cy="152" r="4" fill="#5c6b78"/>
+          </svg>
+          <div class="body">
+            <h3 style="font-size:1.35rem">Casas flotantes</h3>
+            <p style="margin-top:8px">Estructuras montadas sobre pontones que suben y bajan con el nivel del agua. Los barrios anfibios de los Países Bajos son la referencia contemporánea.</p>
+            <div class="chips"><span class="chip">Pontones</span><span class="chip">Barrios anfibios</span><span class="chip">Países Bajos</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 · QUIZ -->
+  <section class="slide" data-nav="Quiz">
+    <div class="wrap">
+      <div class="eyebrow rv">13 · Pausa activa</div>
+      <h2 class="rv">¿Verdadero o falso?</h2>
+      <div class="card rv" style="margin-top:20px">
+        <div id="quiz"></div>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px">
+          <span class="score" id="score">Aciertos: 0 / 6</span>
+          <button class="tool" id="btnReset">Reiniciar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 · CONCLUSIONES -->
+  <section class="slide" data-nav="Acciones">
+    <div class="wrap">
+      <div class="eyebrow rv">14 · Conclusiones y acciones</div>
+      <h2 class="rv">Qué hacer, empezando ahora</h2>
+      <p class="lead rv">El ascenso está medido y acelerando; la costa salvadoreña ya opera con vulnerabilidad alta. La adaptación no es un escenario futuro, es una decisión de planificación presente.</p>
+      <div class="grid g3 rv" style="margin-top:28px">
+        <div class="card">
+          <span class="mono" style="color:var(--turquesa);font-size:11px;letter-spacing:.2em">ACCIÓN 01</span>
+          <h3 style="font-size:1.25rem;margin:10px 0">Restaurar manglares</h3>
+          <p>Recuperar la barrera viva que disipa el oleaje y retiene sedimento, y contener las presiones que la degradan.</p>
+        </div>
+        <div class="card">
+          <span class="mono" style="color:var(--turquesa);font-size:11px;letter-spacing:.2em">ACCIÓN 02</span>
+          <h3 style="font-size:1.25rem;margin:10px 0">Viviendas elevadas de bajo costo</h3>
+          <p>Aplicar el principio del palafito con materiales accesibles, para que acomodarse no dependa de un presupuesto que la comunidad no tiene.</p>
+        </div>
+        <div class="card">
+          <span class="mono" style="color:var(--turquesa);font-size:11px;letter-spacing:.2em">ACCIÓN 03</span>
+          <h3 style="font-size:1.25rem;margin:10px 0">Planificación municipal con índices de vulnerabilidad</h3>
+          <p>Usar el mapa de vulnerabilidad costera para decidir dónde se construye, dónde se protege y dónde se retira.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 · REFERENCIAS -->
+  <section class="slide" data-nav="Referencias">
+    <div class="wrap">
+      <div class="eyebrow rv">15 · Referencias</div>
+      <h2 class="rv">Fuentes consultadas</h2>
+      <div class="grid g2 rv" style="margin-top:24px">
+        <a class="ref" href="https://www-whoi-edu.translate.goog/ocean-learning-hub/ocean-topics/climate-weather/sea-level-rise/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc" target="_blank" rel="noopener">
+          <span class="n">01</span><span><b>Woods Hole Oceanographic Institution — Sea Level Rise</b><span>www-whoi-edu.translate.goog/ocean-learning-hub/ocean-topics/climate-weather/sea-level-rise/</span></span>
+        </a>
+        <a class="ref" href="https://www.climate.gov/news-features/understanding-climate/climate-change-global-sea-level" target="_blank" rel="noopener">
+          <span class="n">02</span><span><b>Climate.gov — Climate Change: Global Sea Level</b><span>www.climate.gov/news-features/understanding-climate/climate-change-global-sea-level</span></span>
+        </a>
+        <a class="ref" href="https://www.treehugger.com/facts-about-sea-level-rise-4868754" target="_blank" rel="noopener">
+          <span class="n">03</span><span><b>Treehugger — Facts About Sea Level Rise</b><span>www.treehugger.com/facts-about-sea-level-rise-4868754</span></span>
+        </a>
+        <a class="ref" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3758961/" target="_blank" rel="noopener">
+          <span class="n">04</span><span><b>PubMed Central — PMC3758961</b><span>pmc.ncbi.nlm.nih.gov/articles/PMC3758961/</span></span>
+        </a>
+      </div>
+      <div class="rv" style="margin-top:30px;display:flex;gap:12px;flex-wrap:wrap">
+        <button class="tool" id="btnPdf2">Exportar como PDF</button>
+        <button class="tool" id="btnResumen2">Descargar resumen</button>
+        <button class="tool" id="btnInicio">Volver al inicio</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= BOTTOM ================= -->
+<footer class="bottombar">
+  <span class="counter"><b id="cur">01</b> / <span id="tot">16</span></span>
+  <span class="hint" id="navLabel"></span>
+  <div class="spacer"></div>
+  <span class="hint">← →</span>
+  <button class="nav-btn" id="prev" aria-label="Sección anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="nav-btn" id="next" aria-label="Sección siguiente"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+</footer>
+
+<script>
+(function(){
+"use strict";
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- NAVEGACIÓN ---------- */
+const slides = [...document.querySelectorAll('.slide')];
+const rail = document.getElementById('rail');
+const cur = document.getElementById('cur');
+const navLabel = document.getElementById('navLabel');
+document.getElementById('tot').textContent = String(slides.length).padStart(2,'0');
+let i = 0, locked = false;
+
+slides.forEach((s,n)=>{
+  const b = document.createElement('button');
+  b.className = 'dot'; b.type='button';
+  b.setAttribute('aria-label', s.dataset.nav);
+  b.innerHTML = '<i></i><em>'+s.dataset.nav+'</em>';
+  b.addEventListener('click',()=>go(n));
+  rail.appendChild(b);
+});
+const dots = [...rail.children];
+
+function go(n){
+  n = Math.max(0, Math.min(slides.length-1, n));
+  if(n === i) return;
+  slides[i].classList.remove('on');
+  slides[i].classList.toggle('prev', n > i);
+  i = n;
+  slides[i].classList.remove('prev');
+  slides[i].classList.add('on');
+  slides[i].scrollTop = 0;
+  dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+  cur.textContent = String(i+1).padStart(2,'0');
+  navLabel.textContent = slides[i].dataset.nav;
+  document.getElementById('prev').disabled = i===0;
+  document.getElementById('next').disabled = i===slides.length-1;
+  target = 0.06 + 0.30 * (i/(slides.length-1));
+  blip();
+  if(i===5) buildRitmo();
+  if(i===6) buildProy();
+}
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('btnInicio').onclick=()=>go(0);
+
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1);}
+  else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(i-1);}
+  else if(e.key==='Home'){e.preventDefault();go(0);}
+  else if(e.key==='End'){e.preventDefault();go(slides.length-1);}
+});
+
+addEventListener('wheel',e=>{
+  const s = slides[i];
+  const scrollable = s.scrollHeight - s.clientHeight > 8;
+  if(scrollable){
+    if(e.deltaY > 0 && s.scrollTop + s.clientHeight < s.scrollHeight - 4) return;
+    if(e.deltaY < 0 && s.scrollTop > 4) return;
+  }
+  if(locked || Math.abs(e.deltaY) < 12) return;
+  locked = true; setTimeout(()=>locked=false, 700);
+  go(e.deltaY > 0 ? i+1 : i-1);
+},{passive:true});
+
+let ty=null;
+addEventListener('touchstart',e=>{ty=e.touches[0].clientY;},{passive:true});
+addEventListener('touchend',e=>{
+  if(ty===null) return;
+  const dy = ty - e.changedTouches[0].clientY;
+  const s = slides[i], scrollable = s.scrollHeight - s.clientHeight > 8;
+  if(scrollable){
+    if(dy>0 && s.scrollTop + s.clientHeight < s.scrollHeight - 4){ty=null;return;}
+    if(dy<0 && s.scrollTop > 4){ty=null;return;}
+  }
+  if(Math.abs(dy) > 55) go(dy>0 ? i+1 : i-1);
+  ty=null;
+},{passive:true});
+
+/* estado inicial */
+slides[0].classList.add('on');
+dots[0].classList.add('on');
+navLabel.textContent = slides[0].dataset.nav;
+document.getElementById('prev').disabled = true;
+
+/* ---------- OCÉANO (canvas) ---------- */
+const cv = document.getElementById('ocean'), ctx = cv.getContext('2d');
+let W=0,H=0,dpr=1, level=0.06, target=0.06, t=0;
+const bubbles = [];
+function resize(){
+  dpr = Math.min(devicePixelRatio||1, 2);
+  W = innerWidth; H = innerHeight;
+  cv.width = W*dpr; cv.height = H*dpr;
+  cv.style.width = W+'px'; cv.style.height = H+'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+resize(); addEventListener('resize',resize);
+for(let k=0;k<46;k++) bubbles.push({x:Math.random(),y:Math.random(),r:Math.random()*2.2+.5,s:Math.random()*.0009+.0003,o:Math.random()*.4+.1});
+
+function wave(y, amp, len, spd, color, alpha){
+  ctx.beginPath();
+  ctx.moveTo(0,H);
+  ctx.lineTo(0,y);
+  for(let x=0;x<=W;x+=8){
+    ctx.lineTo(x, y + Math.sin((x/len) + t*spd)*amp + Math.sin((x/(len*.45)) + t*spd*1.7)*amp*.35);
+  }
+  ctx.lineTo(W,H); ctx.closePath();
+  ctx.globalAlpha = alpha; ctx.fillStyle = color; ctx.fill(); ctx.globalAlpha = 1;
+}
+
+function frame(){
+  t += reduce ? 0 : 0.016;
+  level += (target - level) * 0.045;
+  ctx.clearRect(0,0,W,H);
+
+  /* burbujas */
+  const base = H*(1-level);
+  for(const b of bubbles){
+    if(!reduce){ b.y -= b.s; if(b.y < 0) { b.y = 1; b.x = Math.random(); } }
+    const y = base + (H - base) * b.y;
+    ctx.beginPath();
+    ctx.arc(b.x*W, y, b.r, 0, Math.PI*2);
+    ctx.fillStyle = 'rgba(0,245,255,'+b.o+')';
+    ctx.fill();
+  }
+  /* capas de agua */
+  wave(base+26, 9, 190, .55, '#00B4D8', .10);
+  wave(base+12, 12, 130, .85, '#0086b3', .14);
+  wave(base,     8,  95, 1.15, '#00F5FF', .12);
+
+  /* línea de superficie */
+  ctx.beginPath();
+  for(let x=0;x<=W;x+=8){
+    const y = base + Math.sin((x/95) + t*1.15)*8 + Math.sin((x/42)+t*1.95)*2.8;
+    x===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  }
+  ctx.strokeStyle = 'rgba(0,245,255,.42)'; ctx.lineWidth = 1.2; ctx.stroke();
+
+  requestAnimationFrame(frame);
+}
+frame();
+
+/* ---------- SONIDO ---------- */
+let audioOn = false, actx = null;
+const btnS = document.getElementById('btnSonido');
+btnS.onclick = ()=>{
+  audioOn = !audioOn;
+  btnS.classList.toggle('off', !audioOn);
+  btnS.title = audioOn ? 'Silenciar' : 'Activar sonido';
+  if(audioOn){ actx = actx || new (window.AudioContext||window.webkitAudioContext)(); blip(); }
+};
+function blip(){
+  if(!audioOn || !actx) return;
+  const o = actx.createOscillator(), g = actx.createGain();
+  o.type='sine'; o.frequency.setValueAtTime(620, actx.currentTime);
+  o.frequency.exponentialRampToValueAtTime(180, actx.currentTime+.22);
+  g.gain.setValueAtTime(.16, actx.currentTime);
+  g.gain.exponentialRampToValueAtTime(.0008, actx.currentTime+.3);
+  o.connect(g); g.connect(actx.destination);
+  o.start(); o.stop(actx.currentTime+.32);
+}
+
+/* ---------- GRÁFICOS ---------- */
+const F = {mono:"'JetBrains Mono', monospace"};
+let cR=null, cP=null;
+function baseOpts(yTitle){
+  return {
+    responsive:true, maintainAspectRatio:false,
+    animation: reduce ? false : {duration:1200, easing:'easeOutQuart'},
+    plugins:{legend:{display:false},
+      tooltip:{backgroundColor:'#0B1E36',borderColor:'#00B4D8',borderWidth:1,titleFont:{family:F.mono},bodyFont:{family:F.mono},padding:10}},
+    scales:{
+      x:{grid:{color:'rgba(212,230,241,.07)'},ticks:{color:'#D4E6F1',font:{family:F.mono,size:11}}},
+      y:{beginAtZero:true,grid:{color:'rgba(212,230,241,.07)'},
+         ticks:{color:'#D4E6F1',font:{family:F.mono,size:11}},
+         title:{display:true,text:yTitle,color:'#00B4D8',font:{family:F.mono,size:11}}}
+    }
+  };
+}
+function buildRitmo(){
+  if(cR || typeof Chart==='undefined') return;
+  cR = new Chart(document.getElementById('chartRitmo'),{
+    type:'bar',
+    data:{labels:['Siglo XX','Última década','2024'],
+      datasets:[{data:[1.5,3.9,5.9],
+        backgroundColor:['rgba(0,180,216,.45)','rgba(0,245,255,.6)','rgba(255,107,107,.75)'],
+        borderColor:['#00B4D8','#00F5FF','#FF6B6B'],borderWidth:1.5,borderRadius:6,maxBarThickness:96}]},
+    options:baseOpts('mm por año')
+  });
+}
+function buildProy(){
+  if(cP || typeof Chart==='undefined') return;
+  cP = new Chart(document.getElementById('chartProy'),{
+    type:'bar',
+    data:{labels:['2050','2100','2100 · alto'],
+      datasets:[{data:[[20,55],[43,98],[43,150]],
+        backgroundColor:['rgba(0,180,216,.45)','rgba(0,245,255,.55)','rgba(255,107,107,.6)'],
+        borderColor:['#00B4D8','#00F5FF','#FF6B6B'],borderWidth:1.5,borderRadius:6,maxBarThickness:74}]},
+    options:Object.assign(baseOpts('centímetros'),{
+      plugins:{legend:{display:false},tooltip:{backgroundColor:'#0B1E36',borderColor:'#00B4D8',borderWidth:1,
+        titleFont:{family:F.mono},bodyFont:{family:F.mono},padding:10,
+        callbacks:{label:c=>'Rango: '+c.raw[0]+'–'+c.raw[1]+' cm'}}}
+    })
+  });
+}
+
+/* ---------- COMPARADOR ---------- */
+const range = document.getElementById('cmpRange'), after = document.getElementById('cmpAfter'), bar = document.getElementById('cmpBar');
+function setCmp(v){ after.style.clipPath = 'inset(0 0 0 '+v+'%)'; bar.style.left = v+'%'; }
+range.addEventListener('input', e=>setCmp(e.target.value));
+setCmp(50);
+
+/* ---------- QUIZ ---------- */
+const QS = [
+  {t:'El nivel del mar sube hoy a un ritmo mayor que el promedio del siglo XX.', a:true,
+   f:'Correcto. Se pasó de 1.5 mm/año en el siglo XX a 5.9 mm/año en 2024.'},
+  {t:'El derretimiento del hielo es la única causa del aumento del nivel del mar.', a:false,
+   f:'Falso. También influye la dilatación térmica: al calentarse, el agua del océano se expande.'},
+  {t:'El Salvador ha perdido cerca del 60% de sus manglares desde 1950.', a:true,
+   f:'Correcto. Es una de las pérdidas de ecosistema costero más significativas del país.'},
+  {t:'Hacia 2050 podría haber hasta 216 millones de desplazados climáticos.', a:true,
+   f:'Correcto. Es la cifra proyectada de migración por causas climáticas.'},
+  {t:'Los palafitos son una invención reciente de la arquitectura moderna.', a:false,
+   f:'Falso. Son una tradición milenaria de las zonas inundables; lo reciente son las casas flotantes sobre pontones.'},
+  {t:'El 70% de la costa entre La Libertad y Salinas tiene vulnerabilidad moderada a alta.', a:true,
+   f:'Correcto. Ese índice es la base para priorizar la planificación municipal.'}
+];
+const quizEl = document.getElementById('quiz'), scoreEl = document.getElementById('score');
+let hits = 0, answered = 0;
+function paintQuiz(){
+  quizEl.innerHTML=''; hits=0; answered=0; scoreEl.textContent='Aciertos: 0 / '+QS.length;
+  QS.forEach(q=>{
+    const d = document.createElement('div'); d.className='q';
+    d.innerHTML = '<p>'+q.t+'</p><div class="btns">'+
+      '<button class="vf" data-v="1" type="button">VERDADERO</button>'+
+      '<button class="vf" data-v="0" type="button">FALSO</button></div>'+
+      '<div class="fb">'+q.f+'</div>';
+    d.querySelectorAll('.vf').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const ok = (btn.dataset.v==='1') === q.a;
+        d.classList.add('done', ok?'ok':'no');
+        btn.classList.add(ok?'pick-ok':'pick-no');
+        d.querySelectorAll('.vf').forEach(b=>b.disabled=true);
+        answered++; if(ok) hits++;
+        scoreEl.textContent = 'Aciertos: '+hits+' / '+QS.length + (answered===QS.length ? '  ·  completado' : '');
+        blip();
+      });
+    });
+    quizEl.appendChild(d);
+  });
+}
+paintQuiz();
+document.getElementById('btnReset').onclick = paintQuiz;
+
+/* ---------- EXPORTAR ---------- */
+function toPdf(){ window.print(); }
+document.getElementById('btnPdf').onclick = toPdf;
+document.getElementById('btnPdf2').onclick = toPdf;
+
+const RESUMEN = `AUMENTO DEL NIVEL DEL MAR
+Causas, consecuencias y adaptaciones arquitectonicas
+
+1. TEMA
+General: ecosistemas marino-costeros y el aumento del nivel del mar.
+Especifico: el fenomeno fisico, sus causas, su impacto sobre los manglares y las respuestas arquitectonicas (palafitos y casas flotantes).
+
+2. PROBLEMA
+El aumento acelerado del nivel del mar, producto del cambio climatico antropogenico, degrada los manglares, desplaza especies y obliga a las comunidades costeras a adaptarse o abandonar su territorio.
+Variables: calentamiento global (dilatacion termica + derretimiento de la criosfera); vulnerabilidad del manglar (salinidad, oleaje); vulnerabilidad social, economica y migratoria; debilidad institucional en la aplicacion de la normativa; alternativas arquitectonicas.
+
+3. MEDICION
+Mareografos (series historicas costeras) y altimetria satelital (cobertura global).
+
+4. CAUSAS
+- Dilatacion termica: el agua se expande al calentarse.
+- Derretimiento de glaciares y capas polares: aporte de masa al oceano.
+
+5. DATOS HISTORICOS
+Siglo XX: 1.5 mm/ano | Ultima decada: 3.9 mm/ano | 2024: 5.9 mm/ano (record).
+
+6. PROYECCIONES
+2050: 20-55 cm | 2100: 43-98 cm | 2100 escenario alto: hasta 1.5 m.
+
+7. CONSECUENCIAS
+Biodiversidad: El Salvador ha perdido 60% de sus manglares desde 1950.
+Migracion: hasta 216 millones de desplazados climaticos para 2050.
+Economia: impacto sobre el turismo costero.
+
+8. CASO EL SALVADOR
+Bahia de Jiquilisco (sitio Ramsar). El 70% de la costa entre La Libertad y Salinas presenta vulnerabilidad de moderada a alta. Contexto: monocultivos, agroquimicos y brecha entre proteccion formal y capacidad institucional.
+
+9. MARCO LEGAL
+Ley de Medio Ambiente (art. 74); Ley de Areas Naturales Protegidas; Convencion Ramsar; NDC 2022.
+
+10. ESTRATEGIAS DE ADAPTACION
+Retirarse | Acomodarse | Protegerse (diques y soluciones basadas en la naturaleza).
+
+11. ARQUITECTURA
+Palafitos: viviendas sobre pilotes de madera, tradicion milenaria.
+Casas flotantes: pontones y barrios anfibios (Paises Bajos).
+
+12. ACCIONES PROPUESTAS
+1) Restaurar manglares.
+2) Viviendas elevadas de bajo costo.
+3) Planificacion municipal con indices de vulnerabilidad.
+
+REFERENCIAS
+- https://www-whoi-edu.translate.goog/ocean-learning-hub/ocean-topics/climate-weather/sea-level-rise/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
+- https://www.climate.gov/news-features/understanding-climate/climate-change-global-sea-level
+- https://www.treehugger.com/facts-about-sea-level-rise-4868754
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC3758961/
+`;
+function descargar(){
+  const blob = new Blob([RESUMEN], {type:'text/plain;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'resumen-nivel-del-mar.txt';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+}
+document.getElementById('btnResumen').onclick = descargar;
+document.getElementById('btnResumen2').onclick = descargar;
+
+/* antes de imprimir: asegurar que los graficos existan */
+addEventListener('beforeprint',()=>{buildRitmo();buildProy();});
+})();
+</script>
+</body>
+</html>
