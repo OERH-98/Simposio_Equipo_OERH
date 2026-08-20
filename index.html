@@ -305,6 +305,13 @@ p{line-height:1.55}
 /* gráficos */
 .chartbox{position:relative;height:min(40vh,300px);width:100%}
 
+/* video incrustado */
+.videobox{position:relative;aspect-ratio:16/9;height:min(58vh,470px);width:auto;max-width:100%;
+  margin-inline:auto;border-radius:18px;overflow:hidden;
+  border:1px solid var(--borde);background:#000;
+  box-shadow:0 24px 60px rgba(0,10,25,.5)}
+.videobox iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+
 /* comparador */
 .compare{position:relative;width:100%;aspect-ratio:16/7;border-radius:18px;overflow:hidden;border:1px solid var(--borde);cursor:ew-resize;background:#07182c;user-select:none;touch-action:none}
 .compare .layer{position:absolute;inset:0}
@@ -354,6 +361,7 @@ p{line-height:1.55}
   .tl-node{padding-top:0;padding-left:26px}
   .tl-node::after{top:6px;left:0}
   .hint,.modtag{display:none}
+  .videobox{height:auto;width:100%}
   .spot{display:none}
 }
 @media (max-width:620px){
@@ -374,6 +382,7 @@ p{line-height:1.55}
   .q{margin-bottom:9px}
   .q p{margin-bottom:7px}
   .chartbox{height:min(34vh,254px)}
+  .videobox{height:min(52vh,400px)}
   .team{margin-top:9px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -456,13 +465,27 @@ p{line-height:1.55}
         <p class="lead rv">Esto no es un escenario futuro. Ya pasó, y pasó aquí.</p>
         <div class="mod-bar"></div>
         <div class="mod-steps rv">
-          <span>Participación</span><span>El muelle</span><span>Registro 2021–2026</span><span>Los daños</span>
+          <span>Video 3D</span><span>Participación</span><span>El muelle</span><span>Registro 2021–2026</span>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- 5 · PARTICIPACIÓN 1 -->
+  <!-- VIDEO · SUBIDA DEL NIVEL DEL MAR -->
+  <section class="slide" data-nav="Video · 3D" data-mod="1">
+    <div class="wrap">
+      <div class="eyebrow rv">01 · Video ilustrativo</div>
+      <h2 class="rv">Subida del nivel del mar</h2>
+      <div class="videobox rv" style="margin-top:14px">
+        <iframe src="https://www.youtube-nocookie.com/embed/DiZ_iOu_Vn4?si=XbSDYDfrXbGPMVGU"
+          title="Subida del nivel del mar | 3D" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTICIPACIÓN 1 -->
   <section class="slide part" data-nav="Participación 1" data-mod="1">
     <div class="wrap">
       <div class="eyebrow rv" style="justify-content:center">Espacio de participación</div>
@@ -1242,7 +1265,7 @@ p{line-height:1.55}
 </main>
 
 <footer class="bottombar">
-  <span class="counter"><b id="cur">01</b> / <span id="tot">47</span></span>
+  <span class="counter"><b id="cur">01</b> / <span id="tot">48</span></span>
   <span class="hint" id="navLabel"></span>
   <div class="spacer"></div>
   <span class="hint">← →</span>
@@ -1639,6 +1662,7 @@ Apertura | Modulo 1 ATENCION | Pausa activa 1 | Modulo 2 INTERES | Pausa activa 
 Modulo 3 DESEO | Pausa activa 3 | Modulo 4 ACCION | Mini quiz | Cierre
 
 MODULO 1 - ATENCION (lo que ya paso)
+- Video: SUBIDA NIVEL DEL MAR | 3D (YouTube, incrustado en la lamina 3).
 - Espacio de participacion: "Despues de ver esto, que fue lo primero que pensaron?" (2-3 participaciones)
 - Llamado de atencion: creen que esto solo pasa en Espana o en Mar del Plata? No se vayan tan lejos.
 - El muelle del Puerto de La Libertad, junio de 2026: hace apenas dos meses.
